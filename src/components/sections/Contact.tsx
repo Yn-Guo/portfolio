@@ -303,15 +303,17 @@ export function Contact() {
             viewport={{ once: true, margin: '-60px' }}
             className="flex flex-wrap items-center justify-center gap-3"
           >
-            <a
-              href={config.resumeUrl}
-              download={config.resumeFileName}
-              className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-all"
-              data-testid="button-download-resume-footer"
-            >
-              <Download size={14} />
-              Download Resume
-            </a>
+            {config.publishResume && (
+              <a
+                href={config.resumeUrl}
+                download={config.resumeFileName}
+                className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-all"
+                data-testid="button-download-resume-footer"
+              >
+                <Download size={14} />
+                Download Resume
+              </a>
+            )}
             <button
               onClick={() => setShareOpen(true)}
               className="border-border text-foreground hover:bg-secondary hover:border-primary/40 flex items-center gap-2 rounded-xl border px-5 py-2.5 text-sm font-medium transition-all"

@@ -531,13 +531,20 @@ blog:
       description: "Look-backs at past structural projects — including invited contributions from collaborators."
 
 # ── Resume (separate EN / 中文 content for PDF export) ────────────────
+#
+# publishResume: false → the public site offers no resume: the nav / hero /
+#   contact buttons are hidden, "#/resume" redirects home, and
+#   public/resume.json + resume.md are not generated. The PDF export still
+#   works locally (pnpm dev + pnpm pdf:resume).
+# publishResume: true  → the resume page, its "Save PDF" button and the two
+#   machine-readable files become public (plan A).
+publishResume: false
 resume:
   en:
     name: "Yanan Guo"
     title: "Structural Engineer · Computational Design · Researcher"
     contact:
       email: "yuukawa0324@gmail.com"
-      location: "Altbach (Stuttgart region), Germany"
     summary: |
       Structural engineer and computational design researcher with 15+ years spanning large-scale building structures and high-performance fibre-composite systems. Ph.D. from the University of Stuttgart (defended 2026) on FEM-based design of coreless filament-wound composites. Combines classical structural engineering with simulation, optimisation and data-driven methods, from concept and verification to fabrication-ready results.
     skills:
@@ -628,7 +635,6 @@ resume:
     title: "结构工程师 · 计算设计 · 科研"
     contact:
       email: "yunerosa@163.com"
-      location: "德国 斯图加特地区"
     summary: |
       结构工程师与计算设计(Computational Design)研究者，15 年以上大型建筑结构与高性能纤维复合材料体系经验。斯图加特大学博士（2026 年完成答辩），研究基于有限元的无芯缠绕纤维构件设计。兼具传统结构工程能力与仿真、优化、数据驱动方法，覆盖从概念设计、验证到可制造交付的全过程。
     skills:

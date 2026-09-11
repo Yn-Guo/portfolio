@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { Router, Route, Switch } from 'wouter';
+import { Router, Route, Switch, Redirect } from 'wouter';
 import { useHashLocation } from 'wouter/use-hash-location';
 import { MotionConfig } from 'framer-motion';
 import { PortfolioPage } from '@/pages/portfolio';
@@ -126,9 +126,14 @@ function App() {
               <BlogListPage />
             </Route>
 
-            {/* Resume page — always accessible */}
+            {/* Resume page — public only when publishResume is on. Locally it
+                stays available in dev so the PDF export keeps working. */}
             <Route path="/resume">
-              <ResumePage theme={theme} onToggleTheme={toggleTheme} />
+              {config.publishResume || import.meta.env.DEV ? (
+                <ResumePage theme={theme} onToggleTheme={toggleTheme} />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
 
             {/* Application portfolio PDF page */}

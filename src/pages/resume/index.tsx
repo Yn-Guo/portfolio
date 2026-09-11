@@ -74,9 +74,11 @@ function ResumeHeader({
   language: ResumeLanguage;
   compact?: boolean;
 }) {
-  // The phone number is deliberately absent from the published config, so it is
-  // never part of the public bundle. The PDF export passes it in via ?phone=…
-  const phone = new URLSearchParams(window.location.search).get('phone') ?? '';
+  // Phone number and location are deliberately absent from the published config,
+  // so they never reach the public bundle. The PDF export injects them via the URL.
+  const params = new URLSearchParams(window.location.search);
+  const phone = params.get('phone') ?? '';
+  const location = params.get('location') ?? '';
   const linkedin = config.social.linkedin?.replace(
     /^https?:\/\/(www\.)?linkedin\.com\/in\//,
     ''
@@ -116,9 +118,11 @@ function ResumeHeader({
               <Phone size={11} /> {phone}
             </span>
           )}
-          <span className="flex items-center gap-1">
-            <MapPin size={11} /> {data.contact.location}
-          </span>
+          {location && (
+            <span className="flex items-center gap-1">
+              <MapPin size={11} /> {location}
+            </span>
+          )}
           {config.social.linkedin && (
             <a
               href={config.social.linkedin}

@@ -237,14 +237,16 @@ export function Hero() {
           >
             View My Work
           </a>
-          <a
-            href="#/resume"
-            className="border-primary/40 text-primary hover:bg-primary/5 flex items-center gap-2 rounded-xl border px-7 py-3 text-sm font-medium tracking-wide transition-all"
-            data-testid="button-view-resume"
-          >
-            <Download size={14} />
-            View Resume
-          </a>
+          {config.publishResume && (
+            <a
+              href="#/resume"
+              className="border-primary/40 text-primary hover:bg-primary/5 flex items-center gap-2 rounded-xl border px-7 py-3 text-sm font-medium tracking-wide transition-all"
+              data-testid="button-view-resume"
+            >
+              <Download size={14} />
+              View Resume
+            </a>
+          )}
         </motion.div>
       </motion.div>
 
