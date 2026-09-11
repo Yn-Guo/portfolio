@@ -20,8 +20,9 @@ status of the last run (it is rewritten on every start).
 
 The strip normally shows only the **title** of the current idea — the bold part of
 the bullet, in a larger size — plus a small `2 / 5` counter and a thin progress bar
-that fills until the next rotation. The full sentence appears when you hover or
-pin it.
+that fills until the next rotation. A small caption at the bottom spells out the
+controls, so someone using it for the first time does not have to guess. The full
+sentence appears when you hover or pin it.
 
 ## Controls
 
