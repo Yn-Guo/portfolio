@@ -6,22 +6,27 @@ import { useEffect, useMemo, useState } from 'react';
  * interaction can be tried without installing anything.
  */
 
+// Invented entries: nothing here is from the real list.
 const DEMO_IDEAS = [
   {
-    title: 'Glossary skill, round two',
-    body: 'Separate knowledge-base, domain and project-node terms, and let the map grow as the work happens instead of being regenerated afterwards.',
+    title: 'Learn enough letterpress to set one page',
+    body: 'Not a skill I need. Worth doing once, slowly, to remember that type has weight.',
   },
   {
-    title: 'A skill for read/write interface files',
-    body: 'Survey how other skills handle interface contracts first, then write down my own conventions so the skill follows them instead of inventing its own.',
+    title: 'A walking route that avoids every main road',
+    body: 'Map it once, keep it on paper, and use it on the days when the city is too loud.',
   },
   {
-    title: "Fibre simulation: because life wasn't hard enough",
-    body: 'The motto from my doctoral cap, used as the frame for a retrospective: story first, methods second.',
+    title: 'Copy the good recipes onto cards by hand',
+    body: 'They are scattered across screenshots, messages and page margins. One small box, actually legible.',
   },
   {
-    title: 'Ticker as a music player',
-    body: 'Title as the track name, the text as lyrics, a cover image behind it. Purely for the pleasure of it.',
+    title: 'Model a building that could never be built',
+    body: 'No client, no site, no codes to satisfy. Just to see what the geometry wants to do.',
+  },
+  {
+    title: 'Record one song, badly, with friends',
+    body: 'One afternoon, one microphone, no second take. The point is the afternoon.',
   },
 ];
 
@@ -101,7 +106,8 @@ export function IdeaTickerDemo() {
           </div>
 
           <p className="text-muted-foreground/70 mt-2 text-[11px]">
-            hover to read &middot; click to keep it open &middot; double-click for the next one
+            example entries &middot; hover to read &middot; click to keep it open &middot; double-click
+            for the next one
           </p>
         </div>
       </div>
