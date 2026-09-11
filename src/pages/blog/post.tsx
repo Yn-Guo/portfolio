@@ -1,10 +1,24 @@
 import { useMemo } from 'react';
+import type { ReactElement } from 'react';
 import ReactMarkdown from 'react-markdown';
+import type { Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Tag, ArrowLeft } from 'lucide-react';
 import { getPost, allPosts } from '@/lib/blog';
 import { config } from '@/portfolio.config';
+import { IdeaTickerDemo } from '@/components/IdeaTickerDemo';
+
+// A ```ticker-demo fence renders the live demo instead of a code block.
+const markdownComponents: Components = {
+  pre({ children }) {
+    const child = Array.isArray(children) ? children[0] : children;
+    const className =
+      (child as ReactElement<{ className?: string }> | undefined)?.props?.className ?? '';
+    if (className.includes('language-ticker-demo')) return <IdeaTickerDemo />;
+    return <pre>{children}</pre>;
+  },
+};
 
 function formatDate(iso: string): string {
   if (!iso) return '';
@@ -150,7 +164,7 @@ export function BlogPostPage({ slug }: BlogPostPageProps) {
           transition={{ delay: 0.25 }}
           className="prose-blog"
         >
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
             {post.content}
           </ReactMarkdown>
         </motion.div>
