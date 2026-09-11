@@ -64,7 +64,11 @@ for (const target of targets) {
     );
   }
   const phoneQuery = phone ? `&phone=${encodeURIComponent(phone)}` : "";
-  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}#/resume`;
+  const location = localContacts[target.lang]?.location;
+  const locationQuery = location
+    ? `&location=${encodeURIComponent(location)}`
+    : "";
+  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}${locationQuery}#/resume`;
   const args = [
     "--headless=new",
     "--disable-gpu",

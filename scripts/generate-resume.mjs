@@ -11,7 +11,7 @@
 
 /* global console */
 
-import { readFileSync, writeFileSync, mkdirSync } from "fs";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import yaml from "js-yaml";
@@ -158,6 +158,17 @@ ${certsBlock ? `\n## Certifications\n\n${certsBlock}\n` : ""}${languagesBlock ? 
 
 const publicDir = join(ROOT, "public");
 mkdirSync(publicDir, { recursive: true });
+
+// publishResume: false → the machine-readable resume stays out of the site.
+// Any stale copy from an earlier run is removed so it cannot reach dist/.
+if (config.publishResume !== true) {
+  for (const name of ["resume.json", "resume.md"]) {
+    const file = join(publicDir, name);
+    if (existsSync(file)) rmSync(file);
+  }
+  console.log("• publishResume is off — public/resume.json and resume.md are skipped");
+  process.exit(0);
+}
 
 writeFileSync(join(publicDir, "resume.json"), JSON.stringify(resume, null, 2));
 writeFileSync(join(publicDir, "resume.md"),   markdown.trim());
