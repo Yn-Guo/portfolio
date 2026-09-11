@@ -24,3 +24,9 @@ dist/
 # Generated machine-readable resume — only published when publishResume is on
 /public/resume.json
 /public/resume.md
+
+# Private ideas: read by the desktop ticker only, never published
+/ideas.local.md
+
+# Idea ticker runtime log
+/tools/idea-ticker/idea-ticker.log
