@@ -41,11 +41,16 @@ const allNavLinks = config.sections
   }));
 
 const MAX_PRIMARY = 5;
-const primaryLinks = allNavLinks.slice(0, MAX_PRIMARY);
+const blogEnabled = config.blog?.enabled ?? false;
+const BLOG_LINK = { label: 'Blog', href: '#/blog', id: 'blog' };
+
+// Blog belongs in the always-visible group, not behind "More".
+const primarySections = allNavLinks.slice(0, MAX_PRIMARY);
+const primaryLinks = blogEnabled
+  ? [...primarySections.slice(0, 4), BLOG_LINK, ...primarySections.slice(4)]
+  : primarySections;
 const moreLinks = allNavLinks.slice(MAX_PRIMARY);
 const sectionIds = allNavLinks.map((l) => l.id);
-
-const blogEnabled = config.blog?.enabled ?? false;
 
 export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
@@ -260,15 +265,6 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
             </div>
           )}
 
-          {/* Blog link (when it fits directly) */}
-          {blogEnabled && moreLinks.length === 0 && (
-            <a
-              href="#/blog"
-              className="text-muted-foreground hover:text-foreground hover:bg-secondary relative rounded-md px-3 py-2 text-xs font-medium tracking-widest whitespace-nowrap uppercase transition-colors"
-            >
-              Blog
-            </a>
-          )}
         </div>
 
         {/* Right actions */}
