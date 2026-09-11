@@ -119,6 +119,9 @@ try {
           <Border x:Name="ProgressBar" Height="2" Width="0" CornerRadius="1"
                   HorizontalAlignment="Left" Background="#00A3DA" />
         </Border>
+        <TextBlock x:Name="HintText" Margin="0,7,0,0" TextWrapping="Wrap" MaxWidth="520"
+                   FontFamily="Segoe UI" FontSize="10" Foreground="#5F6B78"
+                   Text="drag - click pins the text - double-click for the next idea - right-click for the menu" />
       </StackPanel>
     </Grid>
   </Border>
