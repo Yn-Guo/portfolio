@@ -172,7 +172,10 @@ export function Navbar({ theme, onToggleTheme, topOffset }: NavbarProps) {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e)}
+                // Route links ("#/blog") must keep their default navigation:
+                // handleNavClick prevents it and hands the hash to Lenis, which
+                // only knows how to scroll to sections.
+                onClick={link.href.startsWith('#/') ? undefined : (e) => handleNavClick(e)}
                 className={linkClass(isActive)}
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
               >
