@@ -16,7 +16,7 @@ I built a small version of that. It is a plain Markdown list on my disk, and a t
 ```ticker-demo
 ```
 
-That is the whole interface. It rotates on its own; hover and it opens the full text, click to keep it open, double-click for the next one. It stops moving while you read.
+That is the whole interface. It rotates on its own; hover and it opens the full text, click to keep it open, double-click for the next one. It stops moving while you read. The entries in it are invented — they show the shape of the thing, not my actual list.
 
 ## Why not just use a task list
 
