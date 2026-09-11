@@ -16,7 +16,7 @@ export interface ResumeContent {
   contact: {
     email: string;
     phone?: string;
-    location: string;
+    location?: string;
   };
   summary: string;
   skills: { category: string; items: string[] }[];
@@ -51,6 +51,7 @@ const rawConfig = rawConfigYaml as unknown as {
   avatarUrl: string;
   resumeUrl: string;
   resumeFileName: string;
+  publishResume?: boolean;
   openToWork: boolean;
   defaultTheme: string;
   colorPreset: string;

@@ -20,3 +20,7 @@ dist/
 
 # Local-only contact details used by the PDF export (must never be published)
 /resume.local.json
+
+# Generated machine-readable resume — only published when publishResume is on
+/public/resume.json
+/public/resume.md
