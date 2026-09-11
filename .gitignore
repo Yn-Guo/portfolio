@@ -1,0 +1,22 @@
+node_modules/
+dist/
+.env.local
+.env.*.local
+.DS_Store
+.replit-artifact/
+
+# Local-only project imagery (rights/permissions not cleared for public release)
+/public/*
+!/public/avatar.png
+!/public/favicon.svg
+!/public/opengraph.jpg
+!/public/resume.json
+!/public/resume.md
+!/public/blog/
+/public/Cases/
+
+# Local PDF exports (may contain personal data)
+/exports/
+
+# Local-only contact details used by the PDF export (must never be published)
+/resume.local.json

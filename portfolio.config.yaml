@@ -1,0 +1,712 @@
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║              GitVitae — Portfolio Configuration                      ║
+# ║  This is the only file you need to edit.                             ║
+# ║  Run  pnpm check-config  to catch mistakes before deploying.         ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║  ** FIRST THING TO CHANGE **                                         ║
+# ║                                                                      ║
+# ║  siteMode: "landing"  → shows the GitVitae intro page (default)      ║
+# ║  siteMode: "portfolio" → shows YOUR portfolio                        ║
+# ║                                                                      ║
+# ║  Change it to "portfolio" once you have filled in your details.      ║
+# ╚══════════════════════════════════════════════════════════════════════╝
+siteMode: "portfolio"   # shows YOUR portfolio
+siteUrl:  "https://yn-guo.github.io/portfolio/"  # Your GitHub Pages URL
+showPoweredBy: false  # Set to true to show a small "Made with GitVitae" badge in your footer (helps others discover GitVitae)
+
+# ── Identity ───────────────────────────────────────────── (required) ──
+name: "Yanan Guo"              # Your name — shown in the header and used as a fallback in the avatar
+title: "Structural Designer, Engineer, Researcher"
+tagline: "Structural engineer & computational design researcher"
+email: "yuukawa0324@gmail.com"
+extraEmails:
+  - "yunerosa@163.com"
+# Phone numbers are intentionally NOT stored here: this file is published with the
+# site and its content ends up in the public JS bundle. The numbers used by the PDF
+# resumes live in the untracked local file "resume.local.json" instead.
+location: ""   # optional
+avatarUrl: "avatar.png"  # square avatar crop in public/ - swap the file to change it
+# How to add a profile photo (free, no extra account needed):
+#   1. Go to your GitHub repo → click "Add file" → "Upload files"
+#   2. Upload your photo (e.g. avatar.jpg) into a folder called "public/"
+#   3. After committing, open the file on GitHub and copy the raw URL:
+#      https://raw.githubusercontent.com/YOU/your-repo/main/public/avatar.jpg
+#   4. Paste that URL here.
+# Leave empty to show your initials as a styled placeholder.
+
+# ── Resume download ────────────────────────────────────────────────────
+# Optional: link directly to a hosted PDF (Google Drive, Dropbox, etc.)
+# If left blank the navbar "Resume" button opens the built-in resume page
+# where visitors can use "Save PDF" to print their own copy.
+#
+# How to get a direct download link:
+#   1. Visit /resume in your portfolio, click "Save PDF" -> save the file
+#   2. Upload that PDF to Google Drive / Dropbox and copy the direct link
+#   3. Paste the link below and update resumeFileName accordingly
+#
+# resumeUrl: "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID"
+# resumeFileName: "Git_Vitae_Resume.pdf"
+
+# ── Status ─────────────────────────────────────────────────────────────
+openToWork: false   # flip to true when you are open to opportunities         # Shows "Open to Opportunities" banner when true
+
+# ── Theme ──────────────────────────────────────────────────────────────
+defaultTheme: "system"   # Options: light | dark | system
+colorPreset: "custom"     # custom palette below (Options: indigo | emerald | rose | amber | ocean | slate | custom)
+# primaryColor: "#6366f1" # Optional — pick any colour you like and paste its hex code here.
+                           # Overrides colorPreset above. To find a hex code:
+                           #   → Google "colour picker", pick a colour, copy the 6-digit code (e.g. #e11d48)
+                           #   → or grab one from coolors.co / your favourite site's colour
+
+resumeTheme:
+  twoColumn: "custom"    # Accent color for the two-column resume layout
+  classic: "custom"      # Accent color for the classic resume layout
+
+# Custom palette: charcoal text / soft ice background / turquoise primary
+customColors:
+  light:
+    primary: "195 100% 43%"        # #00A3DA turquoise blue
+    primaryFg: "0 0% 100%"
+    accent: "199 92% 94%"
+    accentFg: "195 100% 28%"
+    ring: "195 100% 43%"
+    gradientEnd: "199 92% 73%"     # #79D2FA sky/ice blue
+  dark:
+    primary: "195 100% 60%"
+    primaryFg: "0 0% 100%"
+    accent: "199 50% 24%"
+    accentFg: "199 92% 82%"
+    ring: "195 100% 60%"
+    gradientEnd: "199 92% 80%"
+
+contactFormEndpoint: ""  # Optional — paste a Formspree URL (https://formspree.io/f/xxxx)
+                           # or any POST endpoint that accepts {name, email, message}.
+                           # Leave empty to use a pre-filled mailto: link instead.
+
+# ── Section visibility ─────────────────────────────────────────────────
+# Set show: false to hide any section from your portfolio
+sections:
+  - { id: about,          show: true  }
+  - { id: stats,          show: false }  # numeric stat cards are off - motto is shown in About instead
+  - { id: skills,         show: true  }  # standalone Skills section (skillAreas cards)
+  - { id: languages,      show: false }  # languages moved into About right column
+  - { id: experience,     show: true  }  # three career stages, full-width cards
+  - { id: projects,       show: true  }  # selected case studies (layout demo, placeholder images/copy)
+  - { id: education,      show: true  }  # education filled in from Education.md
+  - { id: certifications, show: false }  # fill in certifications, then set true
+  - { id: publications,   show: true  }
+  - { id: testimonials,   show: false }  # fill in testimonials, then set true
+  - { id: contact,        show: true  }
+
+# ── Social links ───────────────────────────── (leave blank to hide) ───
+social:
+  github:   "https://github.com/Yn-Guo"
+  linkedin: "https://www.linkedin.com/in/yanan-guo-0324sh/"
+  twitter:  ""
+  website:  ""
+
+# ── About ──────────────────────────────────────────────────────────────
+# Use | for multi-line text. Indent each line by 2 spaces.
+about: |
+  "For Design, Use Methods."
+
+  Structural engineer and computational designer, researcher with 15+ years spanning large-scale building structures and high-performance fibre-composite systems.
+
+  Ph.D. from the University of Stuttgart (defended successfully, 2026).
+
+
+# ── Stats ──────────────────────────────────────────────────────────────
+# Customise each label and value freely — change "Projects Shipped" to
+# "Active Customers", "Happy Clients", "Open Source Stars", etc.
+# Optional fields: prefix (e.g. "$") and suffix (e.g. "+" or "k").
+# Remove all entries or set show: false above to hide this section.
+stats:
+  - { label: "Years Experience", value: 15, suffix: "+" }
+  - { label: "Large-Scale Projects", value: 12 }
+  - { label: "Mid/Small Projects", value: 15 }
+  - { label: "Fibre-Composite Projects", value: 3 }
+
+# Examples of other combinations you can use:
+#   - { label: "Active Users",    value: 10000, suffix: "+" }
+#   - { label: "Revenue",         value: 2,     prefix: "$", suffix: "M+" }
+#   - { label: "Countries",       value: 12,    suffix: ""  }
+
+# ── Languages (rendered in About right column) ─────────────────────────
+# level options: Native | Fluent | Conversational | Basic
+languages: 
+  - { name: "English", level: "Fluent" }
+  - { name: "Chinese", level: "Native" }
+# demo entries removed - add your languages when ready
+
+# ── About method trio (About right column) ────────────────────────────
+skills:
+  - category: "Research"
+    items: [Structures, Materials, Robotic-Fabrication]
+  - category: "Design"
+    items: [Data, Workflow, Co-Design]
+  - category: "Computation"
+    items: [FEM, Machine Learning, Optimization]
+
+# ── Skills section cards (standalone section) ─────────────────────────
+# Display order = two rows: first two areas on row 1, remaining on row 2.
+# Concrete project evidence is intentionally kept out — it belongs to
+# the future experience/projects case sections.
+skillAreas:
+  - category: "Structural Engineering & Design"
+    items:
+      - "High-rise & long-span structures"
+      - "Full design cycle, concept to construction"
+      - "Stability, dynamics, seismic & wind design"
+      - "Codes, peer review & coordination"
+  - category: "Composites & Robotic Fabrication"
+    items:
+      - "Coreless filament winding (CFW)"
+      - "Flax, bamboo & timber-hybrid composites"
+      - "Robotic fabrication & design-for-fabrication"
+      - "Physical testing & model validation"
+  - category: "Simulation & Analysis"
+    items:
+      - "Nonlinear FEM (ANSYS)"
+      - "Buckling, stability & dynamic analysis"
+      - "Lamination parameters & composite modelling"
+      - "Uncertainty analysis"
+      - "ETABS, SAP2000, SOFiSTiK"
+  - category: "Computation in Design"
+    items:
+      - "Python, data & automation"
+      - "Rhino / Grasshopper workflows"
+      - "Simulation automation & pipelines"
+      - "Engineering tool development (Eto UI)"
+  - category: "Engineering Workflow & Quality"
+    items:
+      - "Contract-first data modelling"
+      - "Verification & regression discipline"
+      - "Handover-driven collaboration"
+      - "Human-AI methodology"
+
+# ── Experience ─────────────────────────────────────────────────────────
+experience:
+  - role: "Research Associate & Doctoral Researcher"
+    company: "ITKE, University of Stuttgart, Germany"
+    period: "2020.12 – 2026.06"
+    description: "FEM-based structural design of coreless filament-wound composites."
+    highlights:
+      - "Award-winning built demonstrators (livMatS Pavilion, ITECH Research Pavilion, BamX! Pavilion, LightPRO Shell), focusing on structural engineering"
+      - "Fast preliminary design method based on lamination parameters & multi-objective optimisation"
+      - "Co-design workflows; ITECH teaching & thesis supervision"
+  - role: "Project Engineer → Project Leader"
+    company: "HJI International (structural consulting), Beijing, China"
+    period: "2011.09 – 2018.09"
+    description: "Structural design and consultancy across the full design cycle for high-rise and complex long-span buildings."
+    highlights:
+      - "High-rise mixed structures up to 221.5 m"
+      - "Complex long-span & spatial structures"
+      - "Engineer-to-leader progression: modelling, calculation, project management & client coordination"
+  - role: "Research Associate — Steel Structures"
+    company: "Ruhr-Universität Bochum, Germany"
+    period: "2008.11 – 2010.05"
+    description: "FEM-based research in steel construction at the Institute for Steel Structures (Stahlbau), Ruhr-Universität Bochum."
+    highlights: []
+
+# ── Projects ───────────────────────────────────────────────────────────
+# Set featured: true to show in the Featured section (max 3 recommended)
+projects:
+  - name: "AI-Assisted ML & Collaboration Methodology"
+    nameZh: "AI 辅助机器学习与协作方法论"
+    description: "A contract-driven Rhino/Grasshopper–ANSYS chain turning scattered analysis routines into a verifiable workflow, combined with a physics-informed ML study curating ~12,000 datasets (64 features) from seven CFW projects. Handover notes, decision logs and verification matrices turned the work into a transferable human-AI collaboration method."
+    descriptionZh: "契约驱动的 Rhino/Grasshopper–ANSYS 流程（315 个验证工况），结合约 12,000 组 CFW 数据、64 维特征的物理信息机器学习研究，并将交接文档、决策记录与验证矩阵沉淀为人机协作方法。"
+    tags: [Rhino/Grasshopper, Physics-informed ML, Human-AI workflow]
+    liveUrl: ""
+    repoUrl: ""
+    featured: true
+    imageUrl: "ai-ml-toolkit-collage.jpg"
+    images: [ai-ml-toolkit-collage.jpg]
+    diagram: "workflow"
+    diagramLabel: "Toolchain & ML workflow"
+    metrics:
+      - { value: "12,000", label: "datasets" }
+      - { value: "64", label: "features" }
+      - { value: "315", label: "verification cases" }
+    publicReady: false
+    portfolioCard: false
+  - name: "IntCDC Building Fibre Component"
+    nameZh: "IntCDC 建筑纤维构件"
+    description: "A research component applying the dissertation workflow end-to-end: lamination-parameter-based fibre layout prediction, uncertainty-aware FEM from measured data, and safety verification through meso-scale testing. Led fibre-network modelling, FEM implementation, data analysis and experimental verification, with team support."
+    descriptionZh: "将博士研究流程完整应用于构件：基于有限元仿真的纤维排布预测、考虑不确定性的多尺度分析，以及受力试验验证。"
+    tags: [CFW, Lamination parameters, Uncertainty-aware FEM]
+    liveUrl: ""
+    repoUrl: ""
+    featured: true
+    imageUrl: "intcd-fibre-component.jpg"
+    images: [intcd-fibre-component.jpg, intcd-fibre-component-2.jpg]
+    diagram: "cfw"
+    diagramLabel: "Fibre layout + verification"
+    metrics:
+      - { value: "CFW", label: "fabrication" }
+      - { value: "FEM", label: "uncertainty" }
+      - { value: "Tests", label: "verification" }
+    publicReady: false
+  - name: "Yuehai Culture and Sports Center, Shenzhen"
+    nameZh: "深圳粤海文体中心"
+    description: "Structural concept, preliminary design and code review for an interlocking cultural-sports complex. The spatial steel system combines cantilevers, transfer and reinforcement trusses with a braced core and large external supports; feasibility was cross-checked with a 1:20 physical structural model."
+    descriptionZh: "复杂空间钢结构概念、扩初与超限审查；包含悬挑、转换，支撑结构与 1:20 实体模型验证。"
+    tags: [Spatial steel structure, Long-span, Physical model]
+    liveUrl: ""
+    repoUrl: ""
+    featured: true
+    imageUrl: "yuehai-culture-sports.jpg"
+    images: [yuehai-culture-sports.jpg, yuehai-culture-sports-2.jpg]
+    diagram: "long-span"
+    diagramLabel: "Spatial steel system"
+    metrics:
+      - { value: "1:20", label: "physical model" }
+      - { value: "Steel", label: "spatial trusses" }
+      - { value: "Full", label: "design cycle" }
+    publicReady: false
+  - name: "ITECH Research Pavilion 2024"
+    nameZh: "ITECH Research Pavilion 2024"
+    description: "First structural components combining natural-fibre composites with timber; tutor-group member responsible for structural modelling and calculation, supporting the construction process."
+    descriptionZh: "首个将天然纤维复合材料与木结构构件复合的结构体系；作为指导教师组成员负责结构建模与计算，并支持建造过程。"
+    tags: [Timber-flax hybrid, Research pavilion]
+    liveUrl: "https://www.itke.uni-stuttgart.de/research/icd-itke-research-pavilions/itech-research-pavilion-2024/"
+    repoUrl: ""
+    featured: false
+    images: [itech-research-pavilion-2024.jpg]
+    diagram: "cfw"
+    publicReady: false
+  - name: "livMatS Pavilion"
+    nameZh: "livMatS Pavilion"
+    description: "First building with a fully robotically wound flax-fibre load-bearing structure; FEM studies of global and component behaviour during the student research phase, later supporting final construction."
+    descriptionZh: "首个全机器人缠绕亚麻纤维承重结构；承担初期有限元研究与建成支持。"
+    tags: [Natural-fibre composite, Robotic fabrication]
+    liveUrl: "https://www.itke.uni-stuttgart.de/research/icd-itke-research-pavilions/livMatS-pavilion-2020-21/"
+    repoUrl: ""
+    featured: false
+    images: [livmats-pavilion.jpg, livmats-pavilion-2.jpg]
+    diagram: "cfw"
+    publicReady: false
+  - name: "Yanchang Petro Tower, Xi'an"
+    nameZh: "西安延长石油塔楼"
+    description: "Structural consultancy and special steel design for a 221.5 m tower using a steel-plate shear-wall core, CFST columns and steel trusses."
+    descriptionZh: "221.5 m 混合高层结构顾问与重要钢结构设计。"
+    tags: [High-rise, Special steel design]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [yanchang-petro-tower.jpg, yanchang-petro-tower-2.jpg]
+    diagram: "high-rise"
+    publicReady: false
+  - name: "Yujing Center, Xiamen"
+    nameZh: "厦门裕景中心"
+    description: "Full-cycle structural consultancy for a 210 m mixed tower and irregular podium, including wind-tunnel testing and multi-directional envelope design."
+    descriptionZh: "210 m 混合塔楼与不规则裙房的全过程结构顾问，包含风洞试验与多方向风环境包络设计。"
+    tags: [High-rise, Wind design]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [yujing-center-xiamen.jpg]
+    diagram: "high-rise"
+    publicReady: false
+  - name: "Jining Cultural & Activity Center"
+    nameZh: "济宁群众艺术馆"
+    description: "Structural concept, preliminary design and code review for a 100 m × 100 m public complex whose four functional zones share one structural language."
+    descriptionZh: "100 m × 100 m 公共文化活动中心的结构概念、扩初与超限审查；四组功能区在统一结构语言下实现各自空间需求。"
+    tags: [Large-span, Public building]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [jining-cultural-center.jpg, jining-cultural-center-2.jpg]
+    diagram: "long-span"
+    publicReady: false
+  - name: "Beach Park, Rizhao"
+    nameZh: "日照海滨公园建筑群"
+    description: "Parametric structural concept, 3D modelling, design and drawings for public buildings and a pedestrian bridge in a beach park."
+    descriptionZh: "日照海滨公园公共建筑与步行桥的参数化结构概念、三维建模、设计与图纸。"
+    tags: [Parametric, Public space]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [beach-park-rizhao.jpg, beach-park-rizhao-2.jpg]
+    diagram: "long-span"
+    publicReady: false
+  - name: "Hutong Courtyard Renovation (Bamboo-Steel), Beijing"
+    nameZh: "北京胡同院落改造"
+    description: "Bamboo-steel structural system for reinforcing and extending a traditional courtyard building, with 3D design, drawings and site coordination."
+    descriptionZh: "采用竹钢材料体系对传统院落进行加固与新增空间设计，包含结构三维设计、图纸绘制与现场施工配合。"
+    tags: [Renovation, Hybrid structure]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [hutong-courtyard.JPG, hutong-courtyard-2.jpg]
+    diagram: "renovation"
+    publicReady: false
+  - name: "Glass Staircase, School Media Room, Beijing"
+    nameZh: "北京中学玻璃楼梯"
+    description: "Fully glazed spiral staircase realised through 3D modelling, material studies and direct connection detailing with the glass fabricator."
+    descriptionZh: "完全由钢化特种玻璃实现的旋转楼梯体系，通过三维建模、玻璃材性与节点做法研究，并与厂家直接对接。"
+    tags: [Glass structure, Detailing]
+    liveUrl: ""
+    repoUrl: ""
+    featured: false
+    images: [glass-staircase.jpg]
+    diagram: "detail"
+    publicReady: false
+
+# ── Education ──────────────────────────────────────────────────────────
+education:
+  - institution: "University of Stuttgart, Germany"
+    degree: "Ph.D. (defended successfully, 2026) — FEM-based structural design of coreless filament-wound composites"
+    period: "2020.12 – 2025.12"
+  - institution: "University of Stuttgart, Germany"
+    degree: "M.Sc. ITECH — Integrative Technologies & Architectural Design Research (International Course)"
+    period: "2018.09 – 2020.10"
+  - institution: "Ruhr-Universität Bochum, Germany"
+    degree: "M.Sc. Computational Engineering (International Course)"
+    period: "2006.09 – 2008.10"
+  - institution: "Beijing University of Technology, China"
+    degree: "B.E. Civil Engineering"
+    period: "2002.09 – 2006.07"
+
+# ── Certifications ─────────────────────────────────────────────────────
+certifications: []   # demo entries removed - add your certifications when ready
+
+# ── Publications ───────────────────────────────────────────────────────
+# Optional — ideal for researchers, academics, and technical writers.
+# type options: conference | journal | preprint | book-chapter | workshop
+# group options: papers (default) | theses — theses get their own subsection
+# Theses / dissertations intentionally omit type (no thesis badge in the
+# template); the degree is named in the venue instead.
+publications:
+  - title: "Towards Physics-Informed Machine Learning in Structural Design: Lessons Learned from Feature Engineering for Fiber Composite Lattice Buckling"
+    authors: "Yanan Guo, Marta Gil Pérez"
+    venue: "IASS Annual Symposium (accepted)"
+    year: "2026"
+    url: ""
+    type: conference
+    tags: []
+  - title: "Co-design of a natural fiber-timber hybrid structural system using dual-robot coreless filament winding"
+    authors: "Rebeca Duque Estrada, Fabian Kannenberg, Tzu-Ying Chen, Yanan Guo, Jan Knippers, Achim Menges"
+    venue: "Scientific Reports"
+    year: "2026"
+    url: "https://doi.org/10.1038/s41598-026-40584-6"
+    type: journal
+    tags: []
+  - title: "Design form-finding and structural evaluation of timber-natural fibre polymer composite hybrid morphologies"
+    authors: "Tzu-Ying Chen, Yanan Guo, Otto Lindstam, Quentin Chef, Jan Knippers"
+    venue: "SSRN"
+    year: "2026"
+    url: "https://doi.org/10.2139/ssrn.6900577"
+    type: preprint
+    tags: []
+  - title: "Structural design with uncertainties of coreless filament wound structures"
+    authors: "Yanan Guo, Marta Gil Pérez, Jan Knippers"
+    venue: "Structures"
+    year: "2025"
+    url: "https://doi.org/10.1016/j.istruc.2025.110411"
+    type: journal
+    tags: []
+  - title: "Geometrical and structural design development of an active-bending structure from natural fibre pultruded profiles: The LightPRO shell"
+    authors: "Evgenia Spyridonos, Yanan Guo, Marta Gil Pérez, Hanaa Dahy"
+    venue: "Developments in the Built Environment"
+    year: "2024"
+    url: "https://doi.org/10.1016/j.dibe.2024.100577"
+    type: journal
+    tags: []
+  - title: "Integrative structural design methods for bamboo woven deployable structures: The BamX! Research Pavilion"
+    authors: "Tzu-Ying Chen, Seiichi Suzuki, Marta Gil Pérez, Yanan Guo, Jan Knippers"
+    venue: "Proceedings of the IASS 2024 Symposium"
+    year: "2024"
+    url: "https://www.researchgate.net/publication/383657953_Integrative_structural_design_methods_for_bamboo_woven_deployable_structures_The_BamX_Research_Pavilion"
+    type: conference
+    tags: []
+  - title: "Toward reciprocal feedback between computational design, engineering, and fabrication to co-design coreless filament-wound structures"
+    authors: "Fabian Kannenberg, Christoph Zechmeister, Marta Gil Pérez, Yanan Guo, Xiliu Yang, David Forster, Sebastian Hügle, Pascal Mindermann, Moataz Abdelaal, Laura Balangé, Volker Schwieger, Daniel Weiskopf, Götz T Gresser, Peter Middendorf, Manfred Bischoff, Jan Knippers, Achim Menges"
+    venue: "Journal of Computational Design and Engineering"
+    year: "2024"
+    url: "https://doi.org/10.1093/jcde/qwae048"
+    type: journal
+    tags: []
+  - title: "Data processing, analysis, and evaluation methods for co-design of coreless filament-wound building systems"
+    authors: "Marta Gil Pérez, Pascal Mindermann, Christoph Zechmeister, David Forster, Yanan Guo, Sebastian Hügle, Fabian Kannenberg, Laura Balangé, Volker Schwieger, Peter Middendorf, Manfred Bischoff, Achim Menges, Götz T Gresser, Jan Knippers"
+    venue: "Journal of Computational Design and Engineering"
+    year: "2023"
+    url: "https://doi.org/10.1093/jcde/qwad064"
+    type: journal
+    tags: []
+  - title: "Maximizing buckling load of elliptical composite cylinders using lamination parameters"
+    authors: "Yanan Guo, Gokhan Serhat, Marta Gil Pérez, Jan Knippers"
+    venue: "Engineering Structures"
+    year: "2022"
+    url: "https://doi.org/10.1016/j.engstruct.2022.114342"
+    type: journal
+    tags: []
+  - title: "Integrative material and structural design methods for natural fibres filament-wound composite structures: The LivMatS pavilion"
+    authors: "Marta Gil Pérez, Yanan Guo, Jan Knippers"
+    venue: "Materials & Design"
+    year: "2022"
+    url: "https://doi.org/10.1016/j.matdes.2022.110624"
+    type: journal
+    tags: []
+  - title: "A design methodology for fiber layup optimization of filament wound structural components"
+    authors: "Yanan Guo, Marta Gil Pérez, Gokhan Serhat, Jan Knippers"
+    venue: "Structures"
+    year: "2022"
+    url: "https://doi.org/10.1016/j.istruc.2022.02.048"
+    type: journal
+    tags: []
+  - title: "Computational co-design framework for coreless wound fibre–polymer composite structures"
+    authors: "Marta Gil Pérez, Christoph Zechmeister, Fabian Kannenberg, Pascal Mindermann, Laura Balangé, Yanan Guo, Sebastian Hügle, Andreas Gienger, David Forster, Manfred Bischoff, Cristina Tarín, Peter Middendorf, Volker Schwieger, Götz T Gresser, Achim Menges, Jan Knippers"
+    venue: "Journal of Computational Design and Engineering"
+    year: "2022"
+    url: "https://doi.org/10.1093/jcde/qwab081"
+    type: journal
+    tags: []
+  - title: "Implementation of Finite Element simulation in the structural design of coreless filament-wound component"
+    authors: "Yanan Guo"
+    venue: "Doctoral dissertation, University of Stuttgart"
+    year: "2025"
+    url: ""
+    group: "theses"
+    tags: []
+  - title: "A novel design methodology for optimized fiber layup of structural components made out of Core-less Filament Winding"
+    authors: "Yanan Guo"
+    venue: "Master's thesis, University of Stuttgart"
+    year: "2020"
+    url: ""
+    group: "theses"
+    tags: []
+  - title: "Dynamical analysis of the structural responses of a wind turbine – steel shaft and foundation"
+    authors: "Yanan Guo"
+    venue: "Master's thesis, Ruhr-Universität Bochum"
+    year: "2008"
+    url: ""
+    group: "theses"
+    tags: []
+
+# ── Testimonials ───────────────────────────────────────────────────────
+testimonials: []   # demo entries removed - add your testimonials when ready
+
+# ── Analytics (optional, always free) ──────────────────────────────────────
+# Two ways to track who visits your portfolio — both free, no credit card:
+#
+# 1. GitHub built-in traffic (zero setup — already there!)
+#    Go to your repository → Insights → Traffic.
+#    Shows unique visitors, page views, and top referrers for the last 14 days.
+#
+# 2. GoatCounter (more detail, privacy-friendly, free forever for personal use)
+#    Sign up at https://www.goatcounter.com — you'll get a short code, e.g. "janedoe"
+#    Uncomment the two lines below and replace "yourcode" with your GoatCounter code:
+#
+# analytics:
+#   goatcounterCode: "yourcode"
+
+# ── Blog ─────────────────────────────────────────────────────────────────────
+# Drop any .md file into the blog/ folder — it becomes a post automatically.
+# Each post starts with a small block called "frontmatter" (between --- lines):
+#
+#   ---
+#   title: "My Post Title"
+#   date: "2025-01-15"
+#   tags: [life, tech]
+#   excerpt: "One sentence that appears on the listing page."
+#   ---
+#
+# Then write your post in plain Markdown below the closing ---.
+# See the sample posts in blog/ to get started.
+blog:
+  enabled: true
+  title: "Blog"
+  description: "Notes on AI-assisted design, self-built engineering tools, and retrospectives of past projects."
+  categories:
+    - slug: "ai-assisted-design"
+      name: "AI-Assisted Design"
+      description: "Machine-learning methods, feature engineering and AI-assisted engineering workflows."
+    - slug: "tools-and-workflows"
+      name: "Tools & Workflows"
+      description: "Self-built tools, Grasshopper components and workflow ideas used in daily engineering work."
+    - slug: "project-retrospectives"
+      name: "Project Retrospectives"
+      description: "Look-backs at past structural projects — including invited contributions from collaborators."
+
+# ── Resume (separate EN / 中文 content for PDF export) ────────────────
+resume:
+  en:
+    name: "Yanan Guo"
+    title: "Structural Engineer · Computational Design · Researcher"
+    contact:
+      email: "yuukawa0324@gmail.com"
+      location: "Altbach (Stuttgart region), Germany"
+    summary: |
+      Structural engineer and computational design researcher with 15+ years spanning large-scale building structures and high-performance fibre-composite systems. Ph.D. from the University of Stuttgart (defended 2026) on FEM-based design of coreless filament-wound composites. Combines classical structural engineering with simulation, optimisation and data-driven methods, from concept and verification to fabrication-ready results.
+    skills:
+      - category: "Structural Engineering & Design"
+        items: [High-rise & long-span structures, Full design cycle, Stability, seismic & wind, Codes & peer review]
+      - category: "Simulation & Analysis"
+        items: [Nonlinear FEM (ANSYS), Buckling analysis, Lamination parameters, ETABS / SAP2000 / SOFiSTiK]
+      - category: "Composites & Robotic Fabrication"
+        items: [Coreless filament winding, Natural-fibre composites, Robotic fabrication, Testing & validation]
+      - category: "Computational Design"
+        items: [Python automation, Rhino / Grasshopper, Simulation pipelines, Engineering tool development]
+      - category: "Engineering Workflow & Quality"
+        items: [Contract-first modelling, Verification & regression, Handover documentation, Human-AI collaboration]
+    experience:
+      - role: "Research Associate & Doctoral Researcher"
+        company: "ITKE, University of Stuttgart, Germany"
+        period: "2020.12 – 2026.06"
+        description: "FEM-based structural design of coreless filament-wound composites, from material characterisation to uncertainty-aware verification."
+        highlights:
+          - "Award-winning built demonstrators (livMatS, ITECH Pavilion, BamX!, LightPRO) — structural engineering"
+          - "Fast preliminary design method using lamination parameters and multi-objective optimisation"
+          - "Co-design workflows; ITECH teaching and thesis supervision"
+      - role: "Project Engineer → Project Leader"
+        company: "HJI International (structural consulting), Beijing, China"
+        period: "2011.09 – 2018.09"
+        description: "Structural design and consultancy across the full design cycle for high-rise and complex long-span buildings."
+        highlights:
+          - "High-rise mixed structures up to 221.5 m"
+          - "Complex long-span and spatial steel structures"
+          - "Modelling, calculation, project management and client coordination"
+      - role: "Research Associate — Steel Structures"
+        company: "Ruhr-Universität Bochum, Germany"
+        period: "2008.11 – 2010.05"
+        description: "FEM-based research in steel construction at the Institute for Steel Structures (Stahlbau)."
+        highlights: []
+    projects:
+      - name: "AI-Assisted ML & Collaboration Methodology"
+        description: "Contract-driven Rhino/Grasshopper–ANSYS workflow and a physics-informed ML feature study on ~12,000 CFW datasets."
+      - name: "IntCDC Building Fibre Component"
+        description: "Dissertation workflow applied end-to-end: fibre layout prediction, uncertainty-aware FEM and meso-scale verification."
+      - name: "livMatS Pavilion"
+        description: "First building with a fully robotically wound flax-fibre load-bearing structure; FEM studies and construction support."
+      - name: "Yuehai Culture and Sports Center, Shenzhen"
+        description: "Structural concept, preliminary design and code review for a spatial steel system with cantilevers, transfers and a 1:20 physical model."
+      - name: "Yanchang Petro Tower, Xi'an"
+        description: "Structural consultancy and special steel design for a 221.5 m mixed high-rise."
+      - name: "Special Structures Design, Beijing"
+        description: "Bamboo-steel retrofit of a courtyard building and a fully glazed spiral staircase, from 3D design to fabricator coordination."
+    publications:
+      - authors: "Guo Y, et al."
+        title: "Maximizing buckling load of elliptical composite cylinders using lamination parameters"
+        venue: "Engineering Structures"
+        year: "2022"
+        url: "https://doi.org/10.1016/j.engstruct.2022.114342"
+      - authors: "Guo Y, et al."
+        title: "A design methodology for fiber layup optimization of filament wound structural components"
+        venue: "Structures"
+        year: "2022"
+        url: "https://doi.org/10.1016/j.istruc.2022.02.048"
+      - authors: "Guo Y, et al."
+        title: "Structural design with uncertainties of coreless filament wound structures"
+        venue: "Structures"
+        year: "2025"
+        url: "https://doi.org/10.1016/j.istruc.2025.110411"
+      - authors: "Kannenberg F, et al. (Guo Y co-author)"
+        title: "Toward reciprocal feedback between computational design, engineering, and fabrication to co-design coreless filament-wound structures"
+        venue: "Journal of Computational Design and Engineering"
+        year: "2024"
+        url: "https://doi.org/10.1093/jcde/qwae048"
+    education:
+      - degree: "Ph.D. — FEM-based design of coreless filament-wound structural component"
+        institution: "University of Stuttgart, Germany"
+        period: "2020.12 – 2025.12"
+      - degree: "M.Sc. ITECH — Integrative Technologies & Architectural Design Research"
+        institution: "University of Stuttgart, Germany"
+        period: "2018.09 – 2020.10"
+      - degree: "M.Sc. Computational Engineering"
+        institution: "Ruhr-Universität Bochum, Germany"
+        period: "2006.09 – 2008.10"
+      - degree: "B.E. Civil Engineering"
+        institution: "Beijing University of Technology, China"
+        period: "2002.09 – 2006.07"
+    languages:
+      - { name: "Chinese", level: "Native" }
+      - { name: "English", level: "Fluent" }
+  zh:
+    name: "郭亚楠"
+    title: "结构工程师 · 计算设计 · 科研"
+    contact:
+      email: "yunerosa@163.com"
+      location: "德国 斯图加特地区"
+    summary: |
+      结构工程师与计算设计(Computational Design)研究者，15 年以上大型建筑结构与高性能纤维复合材料体系经验。斯图加特大学博士（2026 年完成答辩），研究基于有限元的无芯缠绕纤维构件设计。兼具传统结构工程能力与仿真、优化、数据驱动方法，覆盖从概念设计、验证到可制造交付的全过程。
+    skills:
+      - category: "结构工程与设计"
+        items: [超高层/复杂综合体/大跨结构, 全过程设计, 稳定分析, 地震与风设计, 规范与审查]
+      - category: "仿真与分析"
+        items: [非线性有限元（ANSYS）, 屈曲分析, 层叠系数, 不确定性, ETABS / SAP2000 / SOFiSTiK]
+      - category: "复合材料与机器人建造"
+        items: [无芯缠绕（CFW）, 天然纤维复合材料, 机器人建造, 试验与验证]
+      - category: "计算设计"
+        items: [Python 自动化, Rhino / Grasshopper, 仿真流程, 工程工具开发]
+      - category: "工程流程与质量"
+        items: [契约式数据建模, 验证与回归, 交接文档, 人机协作方法]
+    experience:
+      - role: "科研助理 / 博士研究员"
+        company: "斯图加特大学 ITKE，德国"
+        period: "2020.12 – 2026.06"
+        description: "从事无芯缠绕纤维复合材料结构构件的有限元分析和结构设计，覆盖材料表征、全过程多尺度建模与不确定性验证。"
+        highlights:
+          - "参与获奖建成示范项目（livMatS、ITECH Pavilion、BamX!、LightPRO），重点负责结构方向"
+          - "提出基于层合参数与多目标优化的快速前期设计方法"
+          - "协同设计流程；ITECH 教学与论文指导"
+      - role: "项目工程师 → 项目主管"
+        company: "HJI International（结构咨询），北京"
+        period: "2011.09 – 2018.09"
+        description: "负责超高层/复杂综合体/大跨结构，以及各种中小型创意结构/装置的全过程设计与咨询。"
+        highlights:
+          - "高层混合结构，最高 221.5 m"
+          - "复杂大跨与空间钢结构"
+          - "建模计算、项目管理与客户对接"
+      - role: "科研助理 — 钢结构"
+        company: "波鸿鲁尔大学，德国"
+        period: "2008.11 – 2010.05"
+        description: "在钢结构研究所（Stahlbau）从事基于有限元的钢结构研究。"
+        highlights: []
+    projects:
+      - name: "AI 辅助机器学习与协作方法论"
+        description: "契约驱动的 Rhino/Grasshopper–ANSYS 流程，约 12,000 组 CFW 数据的物理信息机器学习特征研究。"
+      - name: "IntCDC 建筑纤维构件"
+        description: "将博士研究流程完整应用于构件：基于有限元仿真的纤维排布预测、考虑不确定性的多尺度分析，以及受力试验验证。"
+      - name: "livMatS Pavilion"
+        description: "首个全机器人缠绕亚麻纤维承重结构；承担初期有限元研究与建成支持。"
+      - name: "深圳粤海文体中心"
+        description: "复杂空间钢结构概念、扩初与超限审查；包含悬挑、转换，支撑结构与 1:20 实体模型验证。"
+      - name: "西安延长石油塔楼"
+        description: "221.5 m 混合高层结构顾问与重要钢结构设计。"
+      - name: "特种结构设计"
+        description: "竹钢材料院落改造结构设计；中学玻璃旋转楼梯三维设计与厂家对接。"
+    publications:
+      - authors: "Guo Y, et al."
+        title: "Maximizing buckling load of elliptical composite cylinders using lamination parameters"
+        venue: "Engineering Structures"
+        year: "2022"
+      - authors: "Guo Y, et al."
+        title: "A design methodology for fiber layup optimization of filament wound structural components"
+        venue: "Structures"
+        year: "2022"
+      - authors: "Guo Y, et al."
+        title: "Structural design with uncertainties of coreless filament wound structures"
+        venue: "Structures"
+        year: "2025"
+      - authors: "Kannenberg F, et al.（Guo Y 为合作作者）"
+        title: "Toward reciprocal feedback between computational design, engineering, and fabrication to co-design coreless filament-wound structures"
+        venue: "Journal of Computational Design and Engineering"
+        year: "2024"
+    education:
+      - degree: "博士 — 无芯缠绕纤维构件有限元仿真实现"
+        institution: "斯图加特大学，德国"
+        period: "2020.12 – 2025.12"
+      - degree: "硕士（ITECH）"
+        institution: "斯图加特大学，德国"
+        period: "2018.09 – 2020.10"
+      - degree: "硕士（计算工程）"
+        institution: "波鸿鲁尔大学，德国"
+        period: "2006.09 – 2008.10"
+      - degree: "学士（土木工程）"
+        institution: "北京工业大学，中国"
+        period: "2002.09 – 2006.07"
+    languages:
+      - { name: "中文", level: "母语" }
+      - { name: "英语", level: "流利" }
