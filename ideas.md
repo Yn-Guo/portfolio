@@ -12,6 +12,7 @@ Everything in this file is public. Anything that should stay private goes into
 - **Glossary skill, round two** — term profiles that separate knowledge-base, domain and project-node vocabulary, plus live tracking that follows progress and grows branches for sub-projects instead of regenerating a static map.
 - **A skill for read/write interface files** — first survey how existing skills approach interface contracts, then write down my own conventions (contract objects, port order, declared data-flow direction) so the skill can follow them rather than invent its own.
 - **Retrospective blog: "Fibre simulation: because life wasn't hard enough"** — the motto from my doctoral cap, used as the frame for a personal-journey piece. Different register from the tooling posts: story first, methods second.
+- **Blog: attending IASS** — a record of the IASS symposium (the paper is accepted): the sessions, the presentation itself, the conversations in between, and what came back home with me. Field notes rather than a result report.
 
 ## Later
 
