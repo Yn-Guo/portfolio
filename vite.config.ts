@@ -224,6 +224,13 @@ const isReplit = !!process.env.REPL_ID;
 
 export default defineConfig({
   base: "./",
+  // Scan only the real entry. By default the dependency scanner also picks up
+  // dist/public/index.html, whose bundled assets reference optional packages
+  // (e.g. @emotion/is-prop-valid via framer-motion) that are not installed;
+  // that aborts pre-bundling and prints a confusing warning on every dev start.
+  optimizeDeps: {
+    entries: ["index.html"],
+  },
   plugins: [
     react(),
     tailwindcss(),
