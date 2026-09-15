@@ -17,3 +17,9 @@ Everything in this file is public. Anything that should stay private goes into
 
 - **Publish the idea ticker** — if it turns out to be fun to use, give it a page of its own on the portfolio.
 - **Ticker as a music player** — the current strip could evolve into something closer to a player: title as the track name, the full text as lyrics, a cover image behind it. Visual play, not a utility — worth trying once the plain version has earned its place.
+
+## Portfolio (local first — the public page stays as it is)
+
+- **Richer project pages in the local preview** — while the published site stays diagram-only, the local view can carry more images and longer notes per project: images open as a browsable sequence, and each one has a one-line caption. Keeps the material usable without reopening the rights questions.
+- **More Projects as a text list** — drop the thumbnails there: list the project names as plain text, and reveal the matching image when a name is clicked.
+- **Publication detail views** — give papers and articles their own presentation (abstract, figures, links). Content and scope to be discussed in a dedicated session.
