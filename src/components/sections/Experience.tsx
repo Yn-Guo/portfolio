@@ -52,7 +52,7 @@ export function Experience() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="min-w-0 flex-1">
+                    <div className="min-w-[9rem] flex-1">
                       <h3 className="text-foreground font-serif text-xl font-light">
                         {job.role}
                       </h3>
