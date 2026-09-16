@@ -4,7 +4,8 @@
  * Requires the local dev server to be running:
  *   pnpm dev
  * Then run:
- *   pnpm pdf:resume
+ *   pnpm pdf:resume     (short version)
+ *   pnpm pdf:cv-full    (every project and publication)
  */
 
 import { existsSync, mkdirSync, readFileSync, statSync } from "fs";
@@ -15,6 +16,16 @@ import { fileURLToPath } from "url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const OUT_DIR = join(ROOT, "exports");
 const BASE_URL = process.env.RESUME_BASE_URL || "http://localhost:3000";
+
+// --full switches the page to its long variant: same layout, but all projects
+// and publications instead of the curated selection.
+const FULL = process.argv.includes("--full");
+
+// The long variant defaults to the single-column layout: the two-column resume
+// keeps a fixed 200px sidebar, which leaves very little room and pages badly
+// once every project and publication is listed.
+const layoutArg = process.argv.find((arg) => arg.startsWith("--layout="));
+const LAYOUT = layoutArg ? layoutArg.split("=")[1] : FULL ? "classic" : "";
 
 // Phone numbers are kept out of the published config, so they live here instead.
 // Create "resume.local.json" (git-ignored) to have the PDFs carry a phone number:
@@ -50,10 +61,15 @@ try {
 
 mkdirSync(OUT_DIR, { recursive: true });
 
-const targets = [
-  { lang: "en", file: "resume-en.pdf" },
-  { lang: "zh", file: "resume-zh.pdf" },
-];
+const targets = FULL
+  ? [
+      { lang: "en", file: "cv-full-en.pdf" },
+      { lang: "zh", file: "cv-full-zh.pdf" },
+    ]
+  : [
+      { lang: "en", file: "resume-en.pdf" },
+      { lang: "zh", file: "resume-zh.pdf" },
+    ];
 
 for (const target of targets) {
   const output = join(OUT_DIR, target.file);
@@ -68,7 +84,9 @@ for (const target of targets) {
   const locationQuery = location
     ? `&location=${encodeURIComponent(location)}`
     : "";
-  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}${locationQuery}#/resume`;
+  const fullQuery = FULL ? "&full=1" : "";
+  const layoutQuery = LAYOUT ? `&layout=${LAYOUT}` : "";
+  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}${locationQuery}${fullQuery}${layoutQuery}#/resume`;
   const args = [
     "--headless=new",
     "--disable-gpu",
