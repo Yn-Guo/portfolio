@@ -354,6 +354,8 @@ function LanguagesBlock({
   data: ResumeContent;
   label: string;
 }) {
+  if (!data.languages || data.languages.length === 0) return null;
+
   return (
     <div className="mb-5">
       <SectionLabel>{label}</SectionLabel>
@@ -472,6 +474,9 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
         year: publication.year,
         url: publication.url,
       })),
+      // The Chinese full CV otherwise ends with a lonely "语言" line on its own
+      // page; the English one keeps its languages block.
+      languages: zh ? [] : resumeData.languages,
     } satisfies ResumeContent;
   }, [isFull, language, resumeData]);
 
