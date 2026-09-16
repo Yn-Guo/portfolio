@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Printer,
@@ -15,6 +15,12 @@ import { FaLinkedin } from 'react-icons/fa6';
 import { config, type ResumeContent } from '@/portfolio.config';
 import { applyThemePalette, hexToPresetPalette } from '@/lib/themes';
 import { ShareModal } from '@/components/ShareModal';
+
+/** First sentence of a description, so the full CV stays readable. */
+function firstSentence(text: string): string {
+  const match = text.match(/^(.+?[.。!?！？])(\s|$)/);
+  return (match ? match[1] : text).trim();
+}
 
 type Layout = 'two-column' | 'classic';
 type ResumeLanguage = 'en' | 'zh';
@@ -426,6 +432,10 @@ function ClassicLayout({
 
 export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
   const [layout, setLayout] = useState<Layout>(() => {
+    // ?layout=classic|two-column overrides the stored preference (used by the
+    // PDF export, which has no localStorage to read).
+    const queryLayout = new URLSearchParams(window.location.search).get('layout');
+    if (queryLayout === 'classic' || queryLayout === 'two-column') return queryLayout;
     return (localStorage.getItem('resume-layout') as Layout) ?? 'two-column';
   });
   const [language, setLanguage] = useState<ResumeLanguage>(() => {
@@ -437,6 +447,33 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
 
   const resumeData =
     config.resume?.[language] ?? config.resume?.en ?? undefined;
+
+  // Full CV (?full=1, used by pnpm pdf:cv-full): same layout and the same
+  // curated summary, skills and experience, but every project and every
+  // publication from the site configuration — the long version is never
+  // maintained twice.
+  const isFull = new URLSearchParams(window.location.search).get('full') === '1';
+  const activeData = useMemo(() => {
+    if (!isFull || !resumeData) return resumeData;
+    const zh = language === 'zh';
+    const pick = (en?: string, zhText?: string) =>
+      zh ? (zhText ?? en ?? '') : (en ?? '');
+
+    return {
+      ...resumeData,
+      projects: config.projects.map((project) => ({
+        name: pick(project.name, project.nameZh),
+        description: firstSentence(pick(project.description, project.descriptionZh)),
+      })),
+      publications: config.publications.map((publication) => ({
+        authors: publication.authors,
+        title: publication.title,
+        venue: publication.venue,
+        year: publication.year,
+        url: publication.url,
+      })),
+    } satisfies ResumeContent;
+  }, [isFull, language, resumeData]);
 
   const setAndStoreLayout = (next: Layout) => {
     setLayout(next);
@@ -473,6 +510,8 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
       </div>
     );
   }
+
+  const data = activeData ?? resumeData;
 
   return (
     <div
@@ -575,9 +614,9 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             className="resume-paper bg-background min-h-[1123px] w-full max-w-[794px] rounded-xl p-10 shadow-xl print:min-h-0 print:rounded-none print:bg-white print:p-8 print:shadow-none"
           >
             {layout === 'two-column' ? (
-              <TwoColumnLayout data={resumeData} language={language} />
+              <TwoColumnLayout data={data} language={language} />
             ) : (
-              <ClassicLayout data={resumeData} language={language} />
+              <ClassicLayout data={data} language={language} />
             )}
           </motion.div>
         </AnimatePresence>
