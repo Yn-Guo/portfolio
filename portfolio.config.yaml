@@ -53,7 +53,10 @@ avatarUrl: "avatar.png"  # square avatar crop in public/ - swap the file to chan
 openToWork: false   # flip to true when you are open to opportunities         # Shows "Open to Opportunities" banner when true
 
 # ── Theme ──────────────────────────────────────────────────────────────
-defaultTheme: "system"   # Options: light | dark | system
+# "light" so the designed light look is what every visitor sees first, whatever
+# the phone or in-app browser (WeChat) reports. Visitors can still switch with
+# the theme toggle in the navigation.
+defaultTheme: "light"   # Options: light | dark | system
 colorPreset: "custom"     # custom palette below (Options: indigo | emerald | rose | amber | ocean | slate | custom)
 # primaryColor: "#6366f1" # Optional — pick any colour you like and paste its hex code here.
                            # Overrides colorPreset above. To find a hex code:

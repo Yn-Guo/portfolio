@@ -41,23 +41,27 @@ export function Education() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: '-60px' }}
-              className="border-border bg-card card-hover flex items-center gap-6 rounded-2xl border p-6"
+              className="border-border bg-card card-hover flex items-center gap-4 rounded-2xl border p-5 sm:gap-6 sm:p-6"
               data-testid={`education-${i}`}
             >
               <div className="bg-primary/10 text-primary flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
                 <GraduationCap size={20} />
               </div>
               <div className="min-w-0 flex-1">
-                <h3 className="text-foreground font-serif text-xl font-light">
-                  {edu.degree}
-                </h3>
-                <p className="text-muted-foreground mt-0.5 text-sm tracking-wide">
-                  {edu.institution}
-                </p>
+                <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+                  <div className="min-w-[9rem] flex-1">
+                    <h3 className="text-foreground font-serif text-xl font-light">
+                      {edu.degree}
+                    </h3>
+                    <p className="text-muted-foreground mt-0.5 text-sm tracking-wide">
+                      {edu.institution}
+                    </p>
+                  </div>
+                  <span className="text-muted-foreground bg-secondary border-border shrink-0 rounded-full border px-3 py-1 text-xs whitespace-nowrap">
+                    {edu.period}
+                  </span>
+                </div>
               </div>
-              <span className="text-muted-foreground bg-secondary border-border shrink-0 rounded-full border px-3 py-1 text-xs whitespace-nowrap">
-                {edu.period}
-              </span>
             </motion.div>
           ))}
         </div>
