@@ -13,6 +13,7 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,md}\"",
     "generate:resume": "node scripts/generate-resume.mjs",
     "pdf:resume": "node scripts/export-resume-pdf.mjs",
+    "pdf:cv-full": "node scripts/export-resume-pdf.mjs --full",
     "pdf:portfolio-en": "node scripts/export-application-pdf.mjs --lang en --out portfolio-en.pdf",
     "pdf:portfolio-zh": "node scripts/export-application-pdf.mjs --lang zh --out portfolio-zh.pdf",
     "serve": "vite preview --config vite.config.ts --host 0.0.0.0",
