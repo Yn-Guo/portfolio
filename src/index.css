@@ -206,7 +206,7 @@ html {
   --secondary: 222 20% 20%;
   --secondary-foreground: 213 31% 91%;
   --muted: 222 20% 18%;
-  --muted-foreground: 213 15% 55%;
+  --muted-foreground: 213 18% 70%;
   --accent: 199 50% 24%;
   --accent-foreground: 199 92% 82%;
   --destructive: 0 72% 51%;
@@ -348,12 +348,20 @@ html {
   }
 }
 
-/* Global card look (screen only): white 50% fill, no border */
+/* Global card look (screen only): translucent fill, no border.
+   Light mode keeps the white 50% wash. Dark mode needs a dark wash instead —
+   white 50% over a dark background turns the cards mid-grey, and the muted text
+   sitting on them loses its contrast. */
 @media screen {
   .bg-card.border,
   .bg-card.border-border {
     background-color: rgb(255 255 255 / 0.5) !important;
     border: 0 !important;
+  }
+
+  .dark .bg-card.border,
+  .dark .bg-card.border-border {
+    background-color: rgb(255 255 255 / 0.07) !important;
   }
 }
 
