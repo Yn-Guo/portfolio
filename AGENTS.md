@@ -49,7 +49,7 @@
 | 唯一仓库 | `D:\git-vitae-yn.github.io` |
 | 公开站点 | https://yn-guo.github.io/portfolio/ （push main 自动部署） |
 | 远端 origin | `https://github.com/Yn-Guo/portfolio`（PUBLIC，Pages 源） |
-| 旧仓库 archive | `https://github.com/Yn-Guo/git-vitae-yn.github.io`（private，历史存档，不要往它推） |
+| 旧仓库 | `git-vitae-yn.github.io` 的远端已于 2026-09-21 从本仓库移除；该 GitHub 仓库待删除。旧历史保留在本地分支 `archive/full-history`（已清除个人住址） |
 | 资料与素材 | `D:\CV2026_secondhalf\`（作品集、投递工具包、碰碰运气、完整版/精简版…） |
 | 自研 skills | `D:\_Skills\<skill>\`（一个 skill 一个目录、各自 .git；Codex 经 junction 加载） |
 | 历史 | 2026-09-21 之前的记录见 `PORTFOLIO_HANDOFF.md`；其中 `E:\CV2026_secondhalf\git-vitae-yn.github.io` 即当前仓库路径（E 盘已退役） |
