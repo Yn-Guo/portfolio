@@ -6,6 +6,7 @@
  * Then run:
  *   pnpm pdf:resume     (short version)
  *   pnpm pdf:cv-full    (every project and publication)
+ *   pnpm pdf:publications  (standalone publication list)
  */
 
 import { existsSync, mkdirSync, readFileSync, statSync } from "fs";
@@ -20,6 +21,10 @@ const BASE_URL = process.env.RESUME_BASE_URL || "http://localhost:3000";
 // --full switches the page to its long variant: same layout, but all projects
 // and publications instead of the curated selection.
 const FULL = process.argv.includes("--full");
+
+// --section=publications exports a single section as its own sheet.
+const sectionArg = process.argv.find((arg) => arg.startsWith("--section="));
+const SECTION = sectionArg ? sectionArg.split("=")[1] : "";
 
 // The long variant defaults to the single-column layout: the two-column resume
 // keeps a fixed 200px sidebar, which leaves very little room and pages badly
@@ -61,15 +66,21 @@ try {
 
 mkdirSync(OUT_DIR, { recursive: true });
 
-const targets = FULL
-  ? [
-      { lang: "en", file: "cv-full-en.pdf" },
-      { lang: "zh", file: "cv-full-zh.pdf" },
-    ]
-  : [
-      { lang: "en", file: "resume-en.pdf" },
-      { lang: "zh", file: "resume-zh.pdf" },
-    ];
+const targets =
+  SECTION === "publications"
+    ? [
+        { lang: "en", file: "publications-en.pdf" },
+        { lang: "zh", file: "publications-zh.pdf" },
+      ]
+    : FULL
+      ? [
+          { lang: "en", file: "cv-full-en.pdf" },
+          { lang: "zh", file: "cv-full-zh.pdf" },
+        ]
+      : [
+          { lang: "en", file: "resume-en.pdf" },
+          { lang: "zh", file: "resume-zh.pdf" },
+        ];
 
 for (const target of targets) {
   const output = join(OUT_DIR, target.file);
@@ -86,7 +97,8 @@ for (const target of targets) {
     : "";
   const fullQuery = FULL ? "&full=1" : "";
   const layoutQuery = LAYOUT ? `&layout=${LAYOUT}` : "";
-  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}${locationQuery}${fullQuery}${layoutQuery}#/resume`;
+  const sectionQuery = SECTION ? `&section=${SECTION}` : "";
+  const url = `${BASE_URL}/?lang=${target.lang}${phoneQuery}${locationQuery}${fullQuery}${layoutQuery}${sectionQuery}#/resume`;
   const args = [
     "--headless=new",
     "--disable-gpu",
