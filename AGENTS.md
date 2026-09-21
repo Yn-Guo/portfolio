@@ -37,7 +37,7 @@
 ## 3. 硬性约束
 
 1. **版式已封印**：简历/作品集 PDF 的版式（页数、字体、边距、抬头写法）不要再设计；只改内容数据。
-2. **不要公开**：仓库保持 private、Pages 不开启，除非用户明确说“上线”。公开前需按「仓库级」检查个人信息（历史提交也会一并公开）。
+2. **仓库是公开的、站点已上线**：`Yn-Guo/portfolio`（PUBLIC）+ GitHub Pages → https://yn-guo.github.io/portfolio/ ；push 到 main 即自动部署。因此进入版本控制的文件与提交历史都会公开——个人信息（电话、住址）不得写入仓库或提交历史（2026-09-21 已重写历史清除旧住址记录）。
 3. **个人信息**：电话/住址只存在于未跟踪的 `resume.local.json`，导出脚本以 `&phone=` / `&location=` 注入；**不得**写进 `portfolio.config.yaml` 或任何受版本控制的文件。
 4. 提交信息用英文祈使句；提交前跑 `pnpm typecheck` + `pnpm build`。
 5. 沙箱权限有限：**Edge 无头导出 PDF、安装依赖、磁盘/系统设置**等需提示用户在本机终端执行。
@@ -47,7 +47,9 @@
 | 用途 | 路径 |
 |---|---|
 | 唯一仓库 | `D:\git-vitae-yn.github.io` |
-| 远端 | `https://github.com/Yn-Guo/git-vitae-yn.github.io`（private） |
+| 公开站点 | https://yn-guo.github.io/portfolio/ （push main 自动部署） |
+| 远端 origin | `https://github.com/Yn-Guo/portfolio`（PUBLIC，Pages 源） |
+| 旧仓库 archive | `https://github.com/Yn-Guo/git-vitae-yn.github.io`（private，历史存档，不要往它推） |
 | 资料与素材 | `D:\CV2026_secondhalf\`（作品集、投递工具包、碰碰运气、完整版/精简版…） |
 | 自研 skills | `D:\_Skills\<skill>\`（一个 skill 一个目录、各自 .git；Codex 经 junction 加载） |
 | 历史 | 2026-09-21 之前的记录见 `PORTFOLIO_HANDOFF.md`；其中 `E:\CV2026_secondhalf\git-vitae-yn.github.io` 即当前仓库路径（E 盘已退役） |
