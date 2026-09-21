@@ -22,6 +22,25 @@ function firstSentence(text: string): string {
   return (match ? match[1] : text).trim();
 }
 
+/** Publication rows as the resume blocks expect them. */
+function mapPublications(
+  publications: {
+    authors: string;
+    title: string;
+    venue: string;
+    year: string;
+    url?: string;
+  }[]
+) {
+  return publications.map((publication) => ({
+    authors: publication.authors,
+    title: publication.title,
+    venue: publication.venue,
+    year: publication.year,
+    url: publication.url,
+  }));
+}
+
 type Layout = 'two-column' | 'classic';
 type ResumeLanguage = 'en' | 'zh';
 
@@ -467,13 +486,7 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
         name: pick(project.name, project.nameZh),
         description: firstSentence(pick(project.description, project.descriptionZh)),
       })),
-      publications: config.publications.map((publication) => ({
-        authors: publication.authors,
-        title: publication.title,
-        venue: publication.venue,
-        year: publication.year,
-        url: publication.url,
-      })),
+      publications: mapPublications(config.publications),
       // The Chinese full CV otherwise ends with a lonely "语言" line on its own
       // page; the English one keeps its languages block.
       languages: zh ? [] : resumeData.languages,
@@ -517,6 +530,14 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
   }
 
   const data = activeData ?? resumeData;
+
+  // ?section=publications renders a standalone sheet: header plus the complete
+  // publication list (pnpm pdf:publications).
+  const isPublicationsSheet =
+    new URLSearchParams(window.location.search).get('section') === 'publications';
+  const sheetData = isPublicationsSheet
+    ? { ...data, publications: mapPublications(config.publications) }
+    : data;
 
   return (
     <div
@@ -618,7 +639,15 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className="resume-paper bg-background min-h-[1123px] w-full max-w-[794px] rounded-xl p-10 shadow-xl print:min-h-0 print:rounded-none print:bg-white print:p-8 print:shadow-none"
           >
-            {layout === 'two-column' ? (
+            {isPublicationsSheet ? (
+              <div className="mx-auto max-w-[640px]">
+                <ResumeHeader data={sheetData} language={language} compact />
+                <PublicationsBlock
+                  data={sheetData}
+                  label={LABELS[language].publications}
+                />
+              </div>
+            ) : layout === 'two-column' ? (
               <TwoColumnLayout data={data} language={language} />
             ) : (
               <ClassicLayout data={data} language={language} />
