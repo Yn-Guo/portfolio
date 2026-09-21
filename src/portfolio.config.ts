@@ -34,6 +34,7 @@ export interface ResumeContent {
     venue: string;
     year: string;
     url?: string;
+    group?: string;
   }[];
   education: { degree: string; institution: string; period: string }[];
   languages: { name: string; level: string }[];

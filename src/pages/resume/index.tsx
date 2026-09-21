@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  ExternalLink,
   Share2,
 } from 'lucide-react';
 import { FaLinkedin } from 'react-icons/fa6';
@@ -30,6 +29,7 @@ function mapPublications(
     venue: string;
     year: string;
     url?: string;
+    group?: string;
   }[]
 ) {
   return publications.map((publication) => ({
@@ -38,7 +38,14 @@ function mapPublications(
     venue: publication.venue,
     year: publication.year,
     url: publication.url,
+    group: publication.group,
   }));
+}
+
+/** One link per entry: the DOI itself, or a short label when it is not a DOI. */
+function publicationLink(url: string): string {
+  const doi = url.replace(/^https?:\/\/(dx\.)?doi\.org\//i, '');
+  return doi === url ? 'Link' : doi;
 }
 
 type Layout = 'two-column' | 'classic';
@@ -57,6 +64,9 @@ const LABELS: Record<
     experience: string;
     projects: string;
     publications: string;
+    publicationsAll: string;
+    papers: string;
+    theses: string;
     education: string;
     languages: string;
   }
@@ -67,6 +77,9 @@ const LABELS: Record<
     experience: 'Experience',
     projects: 'Selected Projects',
     publications: 'Selected Publications',
+    publicationsAll: 'Publications',
+    papers: 'Journal & Conference Papers',
+    theses: 'Theses',
     education: 'Education',
     languages: 'Languages',
   },
@@ -76,6 +89,9 @@ const LABELS: Record<
     experience: '工作经历',
     projects: '代表项目',
     publications: '代表论文',
+    publicationsAll: '发表论文',
+    papers: '期刊与会议论文',
+    theses: '学位论文',
     education: '教育背景',
     languages: '语言',
   },
@@ -286,51 +302,62 @@ function ProjectsBlock({
 function PublicationsBlock({
   data,
   label,
+  papersLabel,
+  thesesLabel,
 }: {
   data: ResumeContent;
   label: string;
+  papersLabel?: string;
+  thesesLabel?: string;
 }) {
+  const papers = data.publications.filter((pub) => pub.group !== 'theses');
+  const theses = data.publications.filter((pub) => pub.group === 'theses');
+  const grouped = papers.length > 0 && theses.length > 0;
+
+  const row = (pub: ResumeContent['publications'][number], i: number) => (
+    <div key={i} className="break-inside-avoid">
+      <p className="text-foreground text-[11px] leading-snug font-semibold">
+        {pub.title}
+      </p>
+      <p className="text-muted-foreground mt-0.5 text-[10px] leading-relaxed">
+        {pub.authors} · <span className="italic">{pub.venue}</span>
+        {pub.year ? `, ${pub.year}` : ''}
+        {pub.url ? (
+          <>
+            {' · '}
+            <a
+              href={pub.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:opacity-70"
+            >
+              {publicationLink(pub.url)}
+            </a>
+          </>
+        ) : null}
+      </p>
+    </div>
+  );
+
   return (
     <div className="mb-6">
       <SectionLabel>{label}</SectionLabel>
-      <div className="space-y-3">
-        {data.publications.map((pub, i) => (
-          <div key={i} className="break-inside-avoid">
-            <div className="flex items-start justify-between gap-2">
-              <div className="min-w-0 flex-1">
-                <p className="text-foreground text-[11px] leading-snug font-semibold">
-                  {pub.url ? (
-                    <a
-                      href={pub.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-primary"
-                    >
-                      {pub.title}
-                    </a>
-                  ) : (
-                    pub.title
-                  )}
-                </p>
-                <p className="text-muted-foreground mt-0.5 text-[10px] leading-relaxed">
-                  {pub.authors} · <span className="italic">{pub.venue}</span>
-                  {pub.year ? `, ${pub.year}` : ''}
-                </p>
-              </div>
-              {pub.url && (
-                <a
-                  href={pub.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary mt-0.5 flex-shrink-0 hover:opacity-70"
-                >
-                  <ExternalLink size={10} />
-                </a>
-              )}
-            </div>
+      {grouped ? (
+        <>
+          <div className="mb-2">
+            <SectionLabel>
+              {papersLabel ?? 'Journal & Conference Papers'}
+            </SectionLabel>
           </div>
-        ))}
-      </div>
+          <div className="space-y-3">{papers.map(row)}</div>
+          <div className="mt-4 mb-2">
+            <SectionLabel>{thesesLabel ?? 'Theses'}</SectionLabel>
+          </div>
+          <div className="space-y-3">{theses.map(row)}</div>
+        </>
+      ) : (
+        <div className="space-y-3">{data.publications.map(row)}</div>
+      )}
     </div>
   );
 }
@@ -416,7 +443,12 @@ export function TwoColumnLayout({
           <SummaryBlock data={data} label={labels.summary} />
           <ExperienceBlock data={data} label={labels.experience} />
           <ProjectsBlock data={data} label={labels.projects} />
-          <PublicationsBlock data={data} label={labels.publications} />
+          <PublicationsBlock
+            data={data}
+            label={labels.publications}
+            papersLabel={labels.papers}
+            thesesLabel={labels.theses}
+          />
         </main>
       </div>
     </div>
@@ -437,7 +469,12 @@ function ClassicLayout({
       <SummaryBlock data={data} label={labels.summary} />
       <ExperienceBlock data={data} label={labels.experience} />
       <ProjectsBlock data={data} label={labels.projects} />
-      <PublicationsBlock data={data} label={labels.publications} />
+      <PublicationsBlock
+        data={data}
+        label={labels.publications}
+        papersLabel={labels.papers}
+        thesesLabel={labels.theses}
+      />
       <div className="grid grid-cols-2 gap-6">
         <div>
           <SkillsBlock data={data} label={labels.skills} />
@@ -641,10 +678,11 @@ export function ResumePage({ theme, onToggleTheme }: ResumePageProps) {
           >
             {isPublicationsSheet ? (
               <div className="mx-auto max-w-[640px]">
-                <ResumeHeader data={sheetData} language={language} compact />
                 <PublicationsBlock
                   data={sheetData}
-                  label={LABELS[language].publications}
+                  label={LABELS[language].publicationsAll}
+                  papersLabel={LABELS[language].papers}
+                  thesesLabel={LABELS[language].theses}
                 />
               </div>
             ) : layout === 'two-column' ? (
