@@ -398,10 +398,10 @@ publications:
     tags: []
   - title: "Design form-finding and structural evaluation of timber-natural fibre polymer composite hybrid morphologies"
     authors: "Tzu-Ying Chen, Yanan Guo, Otto Lindstam, Quentin Chef, Jan Knippers"
-    venue: "SSRN"
+    venue: "Results in Engineering"
     year: "2026"
-    url: "https://doi.org/10.2139/ssrn.6900577"
-    type: preprint
+    url: "https://doi.org/10.1016/j.rineng.2026.113229"
+    type: journal
     tags: []
   - title: "Structural design with uncertainties of coreless filament wound structures"
     authors: "Yanan Guo, Marta Gil Pérez, Jan Knippers"
