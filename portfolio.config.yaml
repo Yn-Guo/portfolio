@@ -384,7 +384,7 @@ certifications: []   # demo entries removed - add your certifications when ready
 publications:
   - title: "Towards Physics-Informed Machine Learning in Structural Design: Lessons Learned from Feature Engineering for Fiber Composite Lattice Buckling"
     authors: "Yanan Guo, Marta Gil Pérez"
-    venue: "IASS Annual Symposium (accepted)"
+    venue: "Proceedings of the IASS 2026 Symposium (in press)"
     year: "2026"
     url: ""
     type: conference
