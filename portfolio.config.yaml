@@ -224,15 +224,15 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: true
-    imageUrl: "ai-ml-toolkit-collage.jpg"
-    images: [ai-ml-toolkit-collage.jpg]
+    imageUrl: "projects/ai-ml-toolkit-collage.jpg"
+    images: [projects/ai-ml-toolkit-collage.jpg]
     diagram: "workflow"
     diagramLabel: "Toolchain & ML workflow"
     metrics:
       - { value: "12,000", label: "datasets" }
       - { value: "64", label: "features" }
       - { value: "315", label: "verification cases" }
-    publicReady: false
+    publicReady: true
     portfolioCard: false
   - name: "IntCDC Building Fibre Component"
     nameZh: "IntCDC 建筑纤维构件"
@@ -259,15 +259,15 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: true
-    imageUrl: "sports-center-shenzhen-1.jpg"
-    images: [sports-center-shenzhen-1.jpg, sports-center-shenzhen-2.jpg]
+    imageUrl: "projects/sports-center-shenzhen-1.jpg"
+    images: [projects/sports-center-shenzhen-1.jpg, projects/sports-center-shenzhen-2.jpg]
     diagram: "long-span"
     diagramLabel: "Spatial steel system"
     metrics:
       - { value: "1:20", label: "physical model" }
       - { value: "Steel", label: "spatial trusses" }
       - { value: "Full", label: "design cycle" }
-    publicReady: false
+    publicReady: true
   - name: "ITECH Research Pavilion 2024"
     nameZh: "ITECH Research Pavilion 2024"
     description: "First structural components combining natural-fibre composites with timber; tutor-group member responsible for structural modelling and calculation, supporting the construction process."
@@ -298,9 +298,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [highrise-office-xian-1.jpg, highrise-office-xian-2.jpg]
+    images: [projects/highrise-office-xian-1.jpg, projects/highrise-office-xian-2.jpg]
     diagram: "high-rise"
-    publicReady: false
+    publicReady: true
   - name: "Mixed-use tower and podium, Xiamen"
     nameZh: "某高层商业综合体，厦门"
     description: "Full-cycle structural consultancy for a 210 m class mixed tower and irregular podium, including wind-tunnel testing and multi-directional envelope design."
@@ -309,9 +309,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [mixed-tower-xiamen.jpg]
+    images: [projects/mixed-tower-xiamen.jpg]
     diagram: "high-rise"
-    publicReady: false
+    publicReady: true
   - name: "Public cultural center, Jining"
     nameZh: "某公共文化活动中心，济宁"
     description: "Structural concept, preliminary design and code review for a 100 m × 100 m public complex whose four functional zones share one structural language."
@@ -320,9 +320,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [cultural-center-jining-1.jpg, cultural-center-jining-2.jpg]
+    images: [projects/cultural-center-jining-1.jpg, projects/cultural-center-jining-2.jpg]
     diagram: "long-span"
-    publicReady: false
+    publicReady: true
   - name: "Public buildings and footbridge, Rizhao seafront"
     nameZh: "海滨公园公共建筑与步行桥，日照"
     description: "Parametric structural concept, 3D modelling, design and drawings for public buildings and a pedestrian bridge in a beach park."
@@ -331,9 +331,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [seafront-buildings-rizhao-1.jpg, seafront-buildings-rizhao-2.jpg]
+    images: [projects/seafront-buildings-rizhao-1.jpg, projects/seafront-buildings-rizhao-2.jpg]
     diagram: "long-span"
-    publicReady: false
+    publicReady: true
   - name: "Courtyard renovation (bamboo-steel), Beijing"
     nameZh: "胡同院落改造（竹钢结构），北京"
     description: "Bamboo-steel structural system for reinforcing and extending a traditional courtyard building, with 3D design, drawings and site coordination."
@@ -342,9 +342,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [courtyard-beijing-1.jpg, courtyard-beijing-2.jpg]
+    images: [projects/courtyard-beijing-1.jpg, projects/courtyard-beijing-2.jpg]
     diagram: "renovation"
-    publicReady: false
+    publicReady: true
   - name: "Glazed spiral staircase, school auditorium, Beijing"
     nameZh: "中学礼堂玻璃旋转楼梯，北京"
     description: "Fully glazed spiral staircase realised through 3D modelling, material studies and direct connection detailing with the glass fabricator."
@@ -353,9 +353,9 @@ projects:
     liveUrl: ""
     repoUrl: ""
     featured: false
-    images: [glass-staircase-beijing.jpg]
+    images: [projects/glass-staircase-beijing.jpg]
     diagram: "detail"
-    publicReady: false
+    publicReady: true
 
 # ── Education ──────────────────────────────────────────────────────────
 education:

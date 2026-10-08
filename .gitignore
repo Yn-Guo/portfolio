@@ -13,6 +13,25 @@ dist/
 !/public/resume.json
 !/public/resume.md
 !/public/blog/
+
+# Watermarked project imagery cleared for publication. Only the files listed
+# below are published; everything else in public/projects/ (the institute fibre
+# projects, still pending permission) stays local.
+!/public/projects/
+/public/projects/*
+!/public/projects/ai-ml-toolkit-collage.jpg
+!/public/projects/beach-park-rizhao.jpg
+!/public/projects/beach-park-rizhao-2.jpg
+!/public/projects/glass-staircase.jpg
+!/public/projects/hutong-courtyard.jpg
+!/public/projects/hutong-courtyard-2.jpg
+!/public/projects/jining-cultural-center.jpg
+!/public/projects/jining-cultural-center-2.jpg
+!/public/projects/yanchang-petro-tower.jpg
+!/public/projects/yanchang-petro-tower-2.jpg
+!/public/projects/yuehai-culture-sports.jpg
+!/public/projects/yuehai-culture-sports-2.jpg
+!/public/projects/yujing-center-xiamen.jpg
 /public/Cases/
 
 # Local PDF exports (may contain personal data)

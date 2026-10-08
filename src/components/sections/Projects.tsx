@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import type { DragEvent, MouseEvent } from 'react';
 import { motion } from 'framer-motion';
 import {
   ChevronLeft,
@@ -12,6 +13,17 @@ import { fadeUpVariants } from '@/lib/animation';
 import { ProjectDiagram } from './ProjectDiagram';
 
 const fadeUp = fadeUpVariants(44, 0.75, 0.12);
+
+/**
+ * Deterrents for the cleared project imagery. A public page can never really
+ * prevent an image from being saved; this only switches off the easy routes
+ * (context menu, dragging, text selection, long-press callout on iOS).
+ */
+const imageDeterrents = {
+  draggable: false,
+  onContextMenu: (event: MouseEvent) => event.preventDefault(),
+  onDragStart: (event: DragEvent) => event.preventDefault(),
+};
 
 type Project = (typeof config.projects)[number];
 
@@ -83,9 +95,10 @@ function Lightbox({
         onClick={(event) => event.stopPropagation()}
       >
         <img
+          {...imageDeterrents}
           src={state.images[state.index]}
           alt=""
-          className="max-h-[80vh] max-w-full rounded-xl object-contain"
+          className="img-guard max-h-[80vh] max-w-full rounded-xl object-contain"
         />
         <figcaption className="text-xs text-white/80">
           <span>
@@ -139,9 +152,10 @@ function ProjectMedia({
           aria-label={`View ${project.name} images`}
         >
           <img
+            {...imageDeterrents}
             src={project.imageUrl}
             alt={project.name}
-            className="h-full w-full object-cover"
+            className="img-guard h-full w-full object-cover"
             onError={() => setFailed(true)}
           />
           {gallerySize > 1 && (
@@ -210,9 +224,10 @@ function ProjectThumb({
         </span>
       ) : (
         <img
+          {...imageDeterrents}
           src={project.images[0]}
           alt=""
-          className="h-full w-full object-cover transition-transform duration-300 group-hover/thumb:scale-105"
+          className="img-guard h-full w-full object-cover transition-transform duration-300 group-hover/thumb:scale-105"
           onError={() => setFailed(true)}
         />
       )}

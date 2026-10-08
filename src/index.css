@@ -781,3 +781,14 @@ html {
     break-inside: avoid;
   }
 }
+
+/*
+ * Cleared project imagery: switch off the easy save routes (drag, iOS long-press
+ * callout, text selection). Deterrent only — a public page cannot truly prevent
+ * an image from being downloaded.
+ */
+.img-guard {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
