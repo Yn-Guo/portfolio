@@ -20,18 +20,18 @@ dist/
 !/public/projects/
 /public/projects/*
 !/public/projects/ai-ml-toolkit-collage.jpg
-!/public/projects/beach-park-rizhao.jpg
-!/public/projects/beach-park-rizhao-2.jpg
-!/public/projects/glass-staircase.jpg
-!/public/projects/hutong-courtyard.jpg
-!/public/projects/hutong-courtyard-2.jpg
-!/public/projects/jining-cultural-center.jpg
-!/public/projects/jining-cultural-center-2.jpg
-!/public/projects/yanchang-petro-tower.jpg
-!/public/projects/yanchang-petro-tower-2.jpg
-!/public/projects/yuehai-culture-sports.jpg
-!/public/projects/yuehai-culture-sports-2.jpg
-!/public/projects/yujing-center-xiamen.jpg
+!/public/projects/courtyard-beijing-1.jpg
+!/public/projects/courtyard-beijing-2.jpg
+!/public/projects/cultural-center-jining-1.jpg
+!/public/projects/cultural-center-jining-2.jpg
+!/public/projects/glass-staircase-beijing.jpg
+!/public/projects/highrise-office-xian-1.jpg
+!/public/projects/highrise-office-xian-2.jpg
+!/public/projects/mixed-tower-xiamen.jpg
+!/public/projects/seafront-buildings-rizhao-1.jpg
+!/public/projects/seafront-buildings-rizhao-2.jpg
+!/public/projects/sports-center-shenzhen-1.jpg
+!/public/projects/sports-center-shenzhen-2.jpg
 /public/Cases/
 
 # Local PDF exports (may contain personal data)
