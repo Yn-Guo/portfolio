@@ -542,6 +542,10 @@ blog:
 # publishResume: true  → the resume page, its "Save PDF" button and the two
 #   machine-readable files become public (plan A).
 publishResume: false
+# showSetup: false → "#/setup" (the template's new-user wizard) redirects home.
+#   Keep it true only while you are still setting the site up; it is template
+#   onboarding, not part of the finished portfolio. Dev keeps it reachable.
+showSetup: false
 resume:
   en:
     name: "Yanan Guo"

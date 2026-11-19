@@ -141,9 +141,14 @@ function App() {
               <ApplicationPage />
             </Route>
 
-            {/* Setup wizard */}
+            {/* Setup wizard — template onboarding, public only when showSetup
+                is on. Locally it stays available in dev. */}
             <Route path="/setup">
-              <SetupPage />
+              {config.showSetup || import.meta.env.DEV ? (
+                <SetupPage />
+              ) : (
+                <Redirect to="/" />
+              )}
             </Route>
 
             {/* Demo portfolio — always accessible at #/demo */}

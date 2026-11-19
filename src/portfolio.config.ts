@@ -53,6 +53,7 @@ const rawConfig = rawConfigYaml as unknown as {
   resumeUrl: string;
   resumeFileName: string;
   publishResume?: boolean;
+  showSetup?: boolean;
   openToWork: boolean;
   defaultTheme: string;
   colorPreset: string;
