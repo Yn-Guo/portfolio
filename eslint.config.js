@@ -8,6 +8,26 @@ import { fixupPluginRules } from "@eslint/compat";
 export default [
   js.configs.recommended,
   {
+    // Node-side scripts (build, PDF export, tools) run under Node, not the browser.
+    files: ['**/*.mjs', '**/*.cjs', 'scripts/**/*.js', 'tools/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        process: 'readonly',
+        console: 'readonly',
+        fetch: 'readonly',
+        AbortSignal: 'readonly',
+        URL: 'readonly',
+        URLSearchParams: 'readonly',
+        Buffer: 'readonly',
+        __dirname: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+      },
+    },
+  },
+  {
     rules: {
       ...react.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off', // Not needed for Vite/React 17+

@@ -8,8 +8,6 @@
  *       pnpm check-config --fix    — validate + auto-apply safe structural defaults
  */
 
-/* global process, console */
-
 import { readFileSync, writeFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";

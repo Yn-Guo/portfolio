@@ -39,7 +39,13 @@ function walkMd(dir: string): string[] {
   return results;
 }
 
-type FrontMatter = { title: string; date: string; excerpt: string; tags: string[] };
+type FrontMatter = {
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  draft: boolean;
+};
 
 function parseFmForRss(raw: string): FrontMatter {
   const fmMatch  = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -55,11 +61,12 @@ function parseFmForRss(raw: string): FrontMatter {
     date:    String(data.date    ?? ""),
     excerpt: String(data.excerpt ?? autoExcerpt),
     tags:    Array.isArray(data.tags) ? (data.tags as string[]) : [],
+    draft:   String(data.draft ?? "").toLowerCase() === "true",
   };
 }
 
 function buildRssXml(rootDir: string): string {
-  const siteUrl     = portfolioConfig.siteUrl    ?? "";
+  const siteUrl     = (portfolioConfig.siteUrl ?? "").replace(/\/+$/, "");
   const blogTitle   = portfolioConfig.blog?.title       ?? portfolioConfig.name ?? "Blog";
   const blogDesc    = portfolioConfig.blog?.description ?? "";
 
@@ -71,7 +78,8 @@ function buildRssXml(rootDir: string): string {
       const slug = path.basename(f, ".md");
       return { slug, ...meta };
     })
-    .filter((p) => p.date)
+    // Drafts stay out of the feed, mirroring the blog index (src/lib/blog.ts).
+    .filter((p) => p.date && !p.draft)
     .sort((a, b) => b.date.localeCompare(a.date));
 
   const items = posts
@@ -92,7 +100,7 @@ function buildRssXml(rootDir: string): string {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title><![CDATA[${blogTitle}]]></title>
-    <link>${siteUrl}</link>
+    <link>${siteUrl}/</link>
     <description><![CDATA[${blogDesc}]]></description>
     <atom:link href="${siteUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>

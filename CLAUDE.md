@@ -22,7 +22,7 @@ pnpm fix-config       # auto-fix config issues
 pnpm generate:resume  # regenerate JSON Resume + Markdown only
 ```
 
-No test runner is included in this project.
+No dedicated test runner configuration beyond Vitest: `pnpm test` runs `src/lib/utils.test.ts`.
 
 ## Architecture
 
@@ -55,7 +55,7 @@ Wouter with hash-based routing (`HashRouter`). Pages live in `src/pages/`.
 
 ### Blog
 
-Markdown files in `blog/` with YAML frontmatter (`title`, `date` required) become blog posts. The Vite RSS plugin extracts frontmatter to build `feed.xml` at build time.
+Markdown files in `blog/` with YAML frontmatter (`title`, `date` required) become blog posts. The Vite RSS plugin extracts frontmatter to build `rss.xml` at build time; posts with `draft: true` are excluded from both the index and the feed.
 
 ## Conventions
 

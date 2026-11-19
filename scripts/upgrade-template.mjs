@@ -9,8 +9,6 @@
  *   pnpm upgrade-template
  */
 
-/* global process, console */
-
 import { execSync, spawnSync } from "child_process";
 
 const UPSTREAM_REMOTE = "git-vitae";
