@@ -176,6 +176,22 @@ export interface Stat {
   suffix?: string;
 }
 
+/**
+ * Optional per-publication citation details. Only needed when the venue wants
+ * a complete BibTeX / Vancouver record: `authors` is family-first and
+ * semicolon-separated ("Guo, Yanan; Gil Pérez, Marta"), `venue` overrides the
+ * display venue (e.g. to drop "(in press)"), `note` becomes a BibTeX `note`.
+ */
+export interface PublicationCitation {
+  doi?: string;
+  volume?: string;
+  issue?: string;
+  pages?: string;
+  authors?: string;
+  venue?: string;
+  note?: string;
+}
+
 export interface Publication {
   title: string;
   authors: string;
@@ -185,6 +201,7 @@ export interface Publication {
   type: string;
   group?: 'papers' | 'theses';
   tags: string[];
+  citation?: PublicationCitation;
 }
 
 export interface Testimonial {

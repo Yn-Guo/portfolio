@@ -389,6 +389,9 @@ publications:
     url: ""
     type: conference
     tags: []
+    citation:
+      authors: "Guo, Yanan; Gil Pérez, Marta"
+      note: "In press"
   - title: "Co-design of a natural fiber-timber hybrid structural system using dual-robot coreless filament winding"
     authors: "Rebeca Duque Estrada, Fabian Kannenberg, Tzu-Ying Chen, Yanan Guo, Jan Knippers, Achim Menges"
     venue: "Scientific Reports"
@@ -396,6 +399,12 @@ publications:
     url: "https://doi.org/10.1038/s41598-026-40584-6"
     type: journal
     tags: []
+    citation:
+      doi: "10.1038/s41598-026-40584-6"
+      volume: "16"
+      issue: "1"
+      pages: "8154"
+      authors: "Duque Estrada, Rebeca; Kannenberg, Fabian; Chen, Tzu-Ying; Guo, Yanan; Knippers, Jan; Menges, Achim"
   - title: "Design form-finding and structural evaluation of timber-natural fibre polymer composite hybrid morphologies"
     authors: "Tzu-Ying Chen, Yanan Guo, Otto Lindstam, Quentin Chef, Jan Knippers"
     venue: "Results in Engineering"
@@ -403,6 +412,11 @@ publications:
     url: "https://doi.org/10.1016/j.rineng.2026.113229"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.rineng.2026.113229"
+      volume: "32"
+      pages: "113229"
+      authors: "Chen, Tzu-Ying; Guo, Yanan; Lindstam, Otto; Chef, Quentin; Knippers, Jan"
   - title: "Structural design with uncertainties of coreless filament wound structures"
     authors: "Yanan Guo, Marta Gil Pérez, Jan Knippers"
     venue: "Structures"
@@ -410,6 +424,11 @@ publications:
     url: "https://doi.org/10.1016/j.istruc.2025.110411"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.istruc.2025.110411"
+      volume: "82"
+      pages: "110411"
+      authors: "Guo, Yanan; Gil Pérez, Marta; Knippers, Jan"
   - title: "Geometrical and structural design development of an active-bending structure from natural fibre pultruded profiles: The LightPRO shell"
     authors: "Evgenia Spyridonos, Yanan Guo, Marta Gil Pérez, Hanaa Dahy"
     venue: "Developments in the Built Environment"
@@ -417,6 +436,11 @@ publications:
     url: "https://doi.org/10.1016/j.dibe.2024.100577"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.dibe.2024.100577"
+      volume: "20"
+      pages: "100577"
+      authors: "Spyridonos, Evgenia; Guo, Yanan; Gil Pérez, Marta; Dahy, Hanaa"
   - title: "Integrative structural design methods for bamboo woven deployable structures: The BamX! Research Pavilion"
     authors: "Tzu-Ying Chen, Seiichi Suzuki, Marta Gil Pérez, Yanan Guo, Jan Knippers"
     venue: "Proceedings of the IASS 2024 Symposium"
@@ -424,6 +448,8 @@ publications:
     url: "https://www.researchgate.net/publication/383657953_Integrative_structural_design_methods_for_bamboo_woven_deployable_structures_The_BamX_Research_Pavilion"
     type: conference
     tags: []
+    citation:
+      authors: "Chen, Tzu-Ying; Suzuki, Seiichi; Gil Pérez, Marta; Guo, Yanan; Knippers, Jan"
   - title: "Toward reciprocal feedback between computational design, engineering, and fabrication to co-design coreless filament-wound structures"
     authors: "Fabian Kannenberg, Christoph Zechmeister, Marta Gil Pérez, Yanan Guo, Xiliu Yang, David Forster, Sebastian Hügle, Pascal Mindermann, Moataz Abdelaal, Laura Balangé, Volker Schwieger, Daniel Weiskopf, Götz T Gresser, Peter Middendorf, Manfred Bischoff, Jan Knippers, Achim Menges"
     venue: "Journal of Computational Design and Engineering"
@@ -431,6 +457,12 @@ publications:
     url: "https://doi.org/10.1093/jcde/qwae048"
     type: journal
     tags: []
+    citation:
+      doi: "10.1093/jcde/qwae048"
+      volume: "11"
+      issue: "3"
+      pages: "374-394"
+      authors: "Kannenberg, Fabian; Zechmeister, Christoph; Gil Pérez, Marta; Guo, Yanan; Yang, Xiliu; Forster, David; Hügle, Sebastian; Mindermann, Pascal; Abdelaal, Moataz; Balangé, Laura; Schwieger, Volker; Weiskopf, Daniel; Gresser, Götz T; Middendorf, Peter; Bischoff, Manfred; Knippers, Jan; Menges, Achim"
   - title: "Data processing, analysis, and evaluation methods for co-design of coreless filament-wound building systems"
     authors: "Marta Gil Pérez, Pascal Mindermann, Christoph Zechmeister, David Forster, Yanan Guo, Sebastian Hügle, Fabian Kannenberg, Laura Balangé, Volker Schwieger, Peter Middendorf, Manfred Bischoff, Achim Menges, Götz T Gresser, Jan Knippers"
     venue: "Journal of Computational Design and Engineering"
@@ -438,6 +470,12 @@ publications:
     url: "https://doi.org/10.1093/jcde/qwad064"
     type: journal
     tags: []
+    citation:
+      doi: "10.1093/jcde/qwad064"
+      volume: "10"
+      issue: "4"
+      pages: "1460-1478"
+      authors: "Gil Pérez, Marta; Mindermann, Pascal; Zechmeister, Christoph; Forster, David; Guo, Yanan; Hügle, Sebastian; Kannenberg, Fabian; Balangé, Laura; Schwieger, Volker; Middendorf, Peter; Bischoff, Manfred; Menges, Achim; Gresser, Götz T; Knippers, Jan"
   - title: "Maximizing buckling load of elliptical composite cylinders using lamination parameters"
     authors: "Yanan Guo, Gokhan Serhat, Marta Gil Pérez, Jan Knippers"
     venue: "Engineering Structures"
@@ -445,6 +483,11 @@ publications:
     url: "https://doi.org/10.1016/j.engstruct.2022.114342"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.engstruct.2022.114342"
+      volume: "262"
+      pages: "114342"
+      authors: "Guo, Yanan; Serhat, Gokhan; Gil Pérez, Marta; Knippers, Jan"
   - title: "Integrative material and structural design methods for natural fibres filament-wound composite structures: The LivMatS pavilion"
     authors: "Marta Gil Pérez, Yanan Guo, Jan Knippers"
     venue: "Materials & Design"
@@ -452,6 +495,11 @@ publications:
     url: "https://doi.org/10.1016/j.matdes.2022.110624"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.matdes.2022.110624"
+      volume: "217"
+      pages: "110624"
+      authors: "Gil Pérez, Marta; Guo, Yanan; Knippers, Jan"
   - title: "A design methodology for fiber layup optimization of filament wound structural components"
     authors: "Yanan Guo, Marta Gil Pérez, Gokhan Serhat, Jan Knippers"
     venue: "Structures"
@@ -459,6 +507,11 @@ publications:
     url: "https://doi.org/10.1016/j.istruc.2022.02.048"
     type: journal
     tags: []
+    citation:
+      doi: "10.1016/j.istruc.2022.02.048"
+      volume: "38"
+      pages: "1125-1136"
+      authors: "Guo, Yanan; Gil Pérez, Marta; Serhat, Gokhan; Knippers, Jan"
   - title: "Computational co-design framework for coreless wound fibre–polymer composite structures"
     authors: "Marta Gil Pérez, Christoph Zechmeister, Fabian Kannenberg, Pascal Mindermann, Laura Balangé, Yanan Guo, Sebastian Hügle, Andreas Gienger, David Forster, Manfred Bischoff, Cristina Tarín, Peter Middendorf, Volker Schwieger, Götz T Gresser, Achim Menges, Jan Knippers"
     venue: "Journal of Computational Design and Engineering"
@@ -466,6 +519,12 @@ publications:
     url: "https://doi.org/10.1093/jcde/qwab081"
     type: journal
     tags: []
+    citation:
+      doi: "10.1093/jcde/qwab081"
+      volume: "9"
+      issue: "2"
+      pages: "310-329"
+      authors: "Gil Pérez, Marta; Zechmeister, Christoph; Kannenberg, Fabian; Mindermann, Pascal; Balangé, Laura; Guo, Yanan; Hügle, Sebastian; Gienger, Andreas; Forster, David; Bischoff, Manfred; Tarín, Cristina; Middendorf, Peter; Schwieger, Volker; Gresser, Götz T; Menges, Achim; Knippers, Jan"
   - title: "Implementation of Finite Element simulation in the structural design of coreless filament-wound component"
     authors: "Yanan Guo"
     venue: "Doctoral dissertation, University of Stuttgart"
@@ -473,6 +532,8 @@ publications:
     url: ""
     group: "theses"
     tags: []
+    citation:
+      authors: "Guo, Yanan"
   - title: "A novel design methodology for optimized fiber layup of structural components made out of Core-less Filament Winding"
     authors: "Yanan Guo"
     venue: "Master's thesis, University of Stuttgart"
@@ -480,6 +541,8 @@ publications:
     url: ""
     group: "theses"
     tags: []
+    citation:
+      authors: "Guo, Yanan"
   - title: "Dynamical analysis of the structural responses of a wind turbine – steel shaft and foundation"
     authors: "Yanan Guo"
     venue: "Master's thesis, Ruhr-Universität Bochum"
@@ -487,6 +550,8 @@ publications:
     url: ""
     group: "theses"
     tags: []
+    citation:
+      authors: "Guo, Yanan"
 
 # ── Testimonials ───────────────────────────────────────────────────────
 testimonials: []   # demo entries removed - add your testimonials when ready

@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, ExternalLink } from 'lucide-react';
+import { BookOpen, ExternalLink, Quote } from 'lucide-react';
 import { config, type Publication } from '@/portfolio.config';
 import { fadeUpVariants } from '@/lib/animation';
+import { CiteDialog } from '@/components/CiteDialog';
 
 const fadeUp = fadeUpVariants(44, 0.75, 0.12);
 
@@ -23,6 +25,7 @@ function GroupHeading({ label }: { label: string }) {
 
 export function Publications() {
   const pubs = config.publications ?? [];
+  const [activePublication, setActivePublication] = useState<Publication | null>(null);
   if (!pubs.length) return null;
 
   const papers = pubs.filter((pub) => pub.group !== 'theses');
@@ -32,6 +35,7 @@ export function Publications() {
   const renderCard = (pub: Publication, i: number) => {
     const firstAuthor = pub.authors.split(',')[0]?.trim();
     const highlightFirstAuthor = firstAuthor === config.name;
+    const openCite = () => setActivePublication(pub);
 
     return (
     <motion.div
@@ -41,7 +45,8 @@ export function Publications() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: '-60px' }}
-      className="group border-border bg-background hover:border-primary/30 hover:shadow-primary/5 relative rounded-2xl border p-6 transition-all duration-300 hover:shadow-lg"
+      onClick={openCite}
+      className="group border-border bg-background hover:border-primary/30 hover:shadow-primary/5 relative cursor-pointer rounded-2xl border p-6 transition-all duration-300 hover:shadow-lg"
     >
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
@@ -60,19 +65,18 @@ export function Publications() {
             )}
           </div>
 
-          {/* Title */}
+          {/* Title — a button so the citation panel is reachable by keyboard */}
           <h3 className="text-foreground group-hover:text-primary mb-1.5 text-base leading-snug font-semibold transition-colors">
-            {pub.url ? (
-              <a
-                href={pub.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {pub.title}
-              </a>
-            ) : (
-              pub.title
-            )}
+            <button
+              type="button"
+              onClick={(event) => {
+                event.stopPropagation();
+                openCite();
+              }}
+              className="cursor-pointer text-left focus-visible:underline focus-visible:outline-none"
+            >
+              {pub.title}
+            </button>
           </h3>
 
           {/* Authors */}
@@ -108,18 +112,33 @@ export function Publications() {
           )}
         </div>
 
-        {/* External link icon */}
-        {pub.url && (
-          <a
-            href={pub.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-border text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 mt-0.5 flex-shrink-0 rounded-lg border p-2 opacity-0 transition-all group-hover:opacity-100"
-            aria-label="Open publication"
+        {/* Cite + external link */}
+        <div className="mt-0.5 flex flex-shrink-0 items-center gap-2">
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              openCite();
+            }}
+            className="border-border text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 flex items-center gap-1.5 rounded-lg border px-2 py-1.5 text-[11px] font-medium transition-all"
+            aria-label={`Cite ${pub.title}`}
           >
-            <ExternalLink size={14} />
-          </a>
-        )}
+            <Quote size={12} aria-hidden />
+            <span className="hidden sm:inline">Cite</span>
+          </button>
+          {pub.url && (
+            <a
+              href={pub.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(event) => event.stopPropagation()}
+              className="border-border text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 rounded-lg border p-2 opacity-0 transition-all group-hover:opacity-100 focus-visible:opacity-100"
+              aria-label="Open publication"
+            >
+              <ExternalLink size={14} />
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
     );
@@ -170,6 +189,11 @@ export function Publications() {
           </div>
         )}
       </div>
+
+      <CiteDialog
+        publication={activePublication}
+        onClose={() => setActivePublication(null)}
+      />
     </section>
   );
 }
